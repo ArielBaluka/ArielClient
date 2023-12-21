@@ -115,7 +115,7 @@
                         </Binding>
                     </TextBox>
 
-                    <PasswordBox x:Name="Password" Grid.Row="3" Grid.Column="1" BorderBrush="Gray" HorizontalAlignment="left" Width="200"/>
+                    <PasswordBox x:Name="tbxPassword" Grid.Row="3" Grid.Column="1" BorderBrush="Gray" HorizontalAlignment="left" Width="200" PasswordChanged="tbxPassword_PasswordChanged"/>
 
                     <TextBlock Text="Phone number" Margin="0,10" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Foreground="#2b1465"/>
                     <TextBlock Text="Email" Margin="0,10" Grid.Row="4" Grid.Column="1" HorizontalAlignment="left" Foreground="#2b1465"/>
@@ -146,17 +146,16 @@
                     <StackPanel HorizontalAlignment="Left" Grid.Row="6" Grid.Column="1" Margin="0,10">
                         <TextBlock Text="Favorite Group: " Foreground="#2b1465"/>
                         <ComboBox x:Name="GroupComboBox" Text="gender" Width="100" HorizontalAlignment="Left" BorderBrush="Gray">
-                            <ComboBoxItem Content="g1"/>
-                            <ComboBoxItem Content="g2"/>
                         </ComboBox>
                     </StackPanel>
 
                     <StackPanel Grid.Row="7" Margin="0,10">
                         <TextBlock Text="Birth date: " Foreground="#2b1465"/>
-                        <DatePicker Width="100" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
-                                    HorizontalAlignment="Left" Background="White"/>
-                    </StackPanel>
 
+                        <DatePicker x:Name="SelDate" Width="100" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                                    HorizontalAlignment="Left" Background="White" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+
+                    </StackPanel>
                 </Grid>
                 <Button x:Name="LoginBtn"
                         Content="SignUp"

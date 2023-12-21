@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ServiceBase" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/ServiceModel/ServiceBase/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/ServiceModel/ServiceBase/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/ServiceModel/ServiceBase/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceBase_GetAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_GetAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_GetAllGames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGames" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_GetAllGames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_GetAllGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroups" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_GetAllGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_GetAllGuesses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGuesses" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_GetAllGuesses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGuessesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_GetAllPlayers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlayers" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_GetAllPlayers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPlayersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_InsertUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_InsertUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_InsertGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertGame" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_InsertGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_InsertGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertGroup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_InsertGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_InsertGuess_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertGuess" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_InsertGuess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertGuessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_InsertPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_InsertPlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertPlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_UpdateGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGame" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_UpdateGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_UpdateGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGroup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_UpdateGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_UpdateGuess_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGuess" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_UpdateGuess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGuessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_UpdatePlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePlayer" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_UpdatePlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_DeleteGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGame" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_DeleteGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_DeleteGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_DeleteGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_DeleteGuess_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGuess" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_DeleteGuess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGuessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_DeletePlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlayer" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_DeletePlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceBase">
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetAllUsers" message="tns:IServiceBase_GetAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/GetAllUsersResponse" message="tns:IServiceBase_GetAllUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetAllGames" message="tns:IServiceBase_GetAllGames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/GetAllGamesResponse" message="tns:IServiceBase_GetAllGames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetAllGroups" message="tns:IServiceBase_GetAllGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/GetAllGroupsResponse" message="tns:IServiceBase_GetAllGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGuesses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetAllGuesses" message="tns:IServiceBase_GetAllGuesses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/GetAllGuessesResponse" message="tns:IServiceBase_GetAllGuesses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPlayers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetAllPlayers" message="tns:IServiceBase_GetAllPlayers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/GetAllPlayersResponse" message="tns:IServiceBase_GetAllPlayers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/InsertUser" message="tns:IServiceBase_InsertUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/InsertUserResponse" message="tns:IServiceBase_InsertUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/InsertGame" message="tns:IServiceBase_InsertGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/InsertGameResponse" message="tns:IServiceBase_InsertGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/InsertGroup" message="tns:IServiceBase_InsertGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/InsertGroupResponse" message="tns:IServiceBase_InsertGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertGuess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/InsertGuess" message="tns:IServiceBase_InsertGuess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/InsertGuessResponse" message="tns:IServiceBase_InsertGuess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/InsertPlayer" message="tns:IServiceBase_InsertPlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/InsertPlayerResponse" message="tns:IServiceBase_InsertPlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/UpdateUser" message="tns:IServiceBase_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/UpdateUserResponse" message="tns:IServiceBase_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/UpdateGame" message="tns:IServiceBase_UpdateGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/UpdateGameResponse" message="tns:IServiceBase_UpdateGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/UpdateGroup" message="tns:IServiceBase_UpdateGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/UpdateGroupResponse" message="tns:IServiceBase_UpdateGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGuess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/UpdateGuess" message="tns:IServiceBase_UpdateGuess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/UpdateGuessResponse" message="tns:IServiceBase_UpdateGuess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/UpdatePlayer" message="tns:IServiceBase_UpdatePlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/UpdatePlayerResponse" message="tns:IServiceBase_UpdatePlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/DeleteUser" message="tns:IServiceBase_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/DeleteUserResponse" message="tns:IServiceBase_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/DeleteGame" message="tns:IServiceBase_DeleteGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/DeleteGameResponse" message="tns:IServiceBase_DeleteGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/DeleteGroup" message="tns:IServiceBase_DeleteGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/DeleteGroupResponse" message="tns:IServiceBase_DeleteGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGuess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/DeleteGuess" message="tns:IServiceBase_DeleteGuess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/DeleteGuessResponse" message="tns:IServiceBase_DeleteGuess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/DeletePlayer" message="tns:IServiceBase_DeletePlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/DeletePlayerResponse" message="tns:IServiceBase_DeletePlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/Login" message="tns:IServiceBase_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/LoginResponse" message="tns:IServiceBase_Login_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceBase" type="tns:IServiceBase">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGames">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/GetAllGames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroups">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/GetAllGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGuesses">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/GetAllGuesses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPlayers">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/GetAllPlayers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/InsertUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertGame">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/InsertGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertGroup">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/InsertGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertGuess">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/InsertGuess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPlayer">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/InsertPlayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGame">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/UpdateGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroup">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/UpdateGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGuess">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/UpdateGuess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlayer">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/UpdatePlayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGame">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/DeleteGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/DeleteGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGuess">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/DeleteGuess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlayer">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/DeletePlayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceBase">
+    <wsdl:port name="BasicHttpBinding_IServiceBase" binding="tns:BasicHttpBinding_IServiceBase">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/ServiceModel/ServiceBase/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
