@@ -75,5 +75,41 @@ namespace WpfClient
             GroupComboBox.DisplayMemberPath = "GroupName";
             GroupComboBox.ItemsSource = groups;
         }
+
+        private void ClrBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SelDate.SelectedDate = DateTime.Now;
+            genderComboBox.SelectedValue = GroupComboBox.SelectedValue = " ";
+            tbEM.Text = tbFN.Text = tbLN.Text = tbPN.Text = tbUN.Text = "";
+            tbxPassword.Password = "";
+        }
+
+        private void SignUpBtn_Click(object sender, RoutedEventArgs e)
+        {
+            User user = new User();
+            user.PassWord = tbxPassword.Password;
+            user.UserName = tbUN.Text;
+            user.FirstName = tbFN.Text;
+            user.LastName = tbLN.Text;
+            user.EMAIL = tbEM.Text;
+            user.BIRTHDATE = DateTime.Parse(SelDate.SelectedDate.ToString());
+            user.Gender = ((string)((ComboBoxItem)genderComboBox.SelectedItem).Content == "Male");// male - true 
+            user.FAVORITEGROUP = (Group)GroupComboBox.SelectedItem;
+            if(serviceClient.InsertUser(user) == 1)
+            {
+                HomePage homePage = new HomePage();
+                this.Close();
+                homePage.ShowDialog();
+            }
+        }
+        public Group FindGroupByName(string name)
+        {
+            foreach(Group grp in groups)
+            {
+                if (grp.GroupName == name) return grp;
+            }
+            return null;
+        }
+
     }
 }

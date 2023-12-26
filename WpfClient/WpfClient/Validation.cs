@@ -22,6 +22,10 @@ namespace WpfClient
                     return new ValidationResult(false, "impossible year");
                 if (date.Month > 12 || date.Month < 0)
                     return new ValidationResult(false, "impossible month");
+                if (date.Year == DateTime.Today.Year && date.Month > DateTime.Today.Month)
+                    return new ValidationResult(false, "future date");
+                if (date.Year == DateTime.Today.Year && date.Month == DateTime.Today.Month && date.Day > DateTime.Today.Day)
+                    return new ValidationResult(false, "future date");
             }
             catch (Exception ex)
             {
