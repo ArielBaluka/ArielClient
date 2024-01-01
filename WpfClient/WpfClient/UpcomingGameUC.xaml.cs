@@ -10,24 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfClient.APLService;
 
 namespace WpfClient
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for UpcomingGameUC.xaml
     /// </summary>
-    public partial class HomePage : Window
+    public partial class UpcomingGameUC : UserControl
     {
-        public HomePage(User user)
+        public UpcomingGameUC()
         {
             InitializeComponent();
-        }
-
-        private void ButtonCloseApp_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }

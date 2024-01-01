@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+//using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -24,6 +25,7 @@ namespace WpfClient
         APLService.ServiceBaseClient serviceClient;
         private GroupList groups = new GroupList();
         Client c;
+        
         public SignUp()
         {
             InitializeComponent();
@@ -86,6 +88,11 @@ namespace WpfClient
 
         private void SignUpBtn_Click(object sender, RoutedEventArgs e)
         {
+            if(!DataChanged())
+            {
+                MessageBox.Show("Certain values arn't selected", "Error");
+                return;
+            }
             User user = new User();
             user.PassWord = tbxPassword.Password;
             user.UserName = tbUN.Text;
@@ -95,21 +102,47 @@ namespace WpfClient
             user.BIRTHDATE = DateTime.Parse(SelDate.SelectedDate.ToString());
             user.Gender = ((string)((ComboBoxItem)genderComboBox.SelectedItem).Content == "Male");// male - true 
             user.FAVORITEGROUP = (Group)GroupComboBox.SelectedItem;
-            if(serviceClient.InsertUser(user) == 1)
+            if (!DoesUserExists(user) && serviceClient.InsertUser(user) == 1)
             {
-                HomePage homePage = new HomePage();
+                HomePage homePage = new HomePage(user);
                 this.Close();
                 homePage.ShowDialog();
             }
         }
-        public Group FindGroupByName(string name)
+
+        //function checks if there is a user that already has the email/username provided
+        public bool DoesUserExists(User us)
         {
-            foreach(Group grp in groups)
+            UserList users = serviceClient.GetAllUsers();
+
+            foreach(User user in users)
             {
-                if (grp.GroupName == name) return grp;
+                if (user.EMAIL.Equals(us.EMAIL))
+                {
+                    MessageBox.Show("This email is taken!", "Error");
+                    return true;
+                }
+                if(user.UserName.Equals(us.UserName))
+                {
+                    MessageBox.Show("This username is taken!", "Error");
+                    return true;
+                }
             }
-            return null;
+            return false;
         }
 
+        public bool DataChanged()
+        {
+            return tbxPassword.Password != "" && tbUN.Text != "" && tbFN.Text != "" && tbLN.Text != "" &&
+            tbEM.Text != "" && SelDate.SelectedDate != null && genderComboBox.SelectedItem != null && 
+            GroupComboBox.SelectedItem != null;
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            this.Close();
+            mainWindow.ShowDialog();
+        }
     }
 }

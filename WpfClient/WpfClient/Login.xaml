@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfClient"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800">
+        Title="Login" Height="450" Width="700">
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="FontSize" Value="20"/>
@@ -41,11 +41,25 @@
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#39c9bb" Offset="0"/>
-                <GradientStop Color="#207068" Offset="0.3"/>
-                <GradientStop Color="#13433e" Offset="0.9"/>
+                <GradientStop Color="Gray" Offset="0"/>
+                <GradientStop Color="DarkGray" Offset="0.8"/>
+                <GradientStop Color="White" Offset="0.9"/>
             </LinearGradientBrush>
         </Grid.Background>
+        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Image HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Stretch="UniformToFill">
+            <Image.Source>
+                <BitmapImage UriSource="/pictures/PremierLeagueLogo.jpeg"/>
+            </Image.Source>
+        </Image>
+
 
         <Border Width="300"
                 Height="400"

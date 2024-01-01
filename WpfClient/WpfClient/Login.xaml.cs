@@ -65,10 +65,13 @@ namespace WpfClient
             User loggedUser = serviceClient.Login(user);
             if(loggedUser != null)
             {
-                HomePage homePage = new HomePage();
+                HomePage homePage = new HomePage(user);
                 this.Close();
                 homePage.ShowDialog();
-            }    
+            }
+            else
+                MessageBox.Show("Unable to login!", "Error");
+
         }
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)

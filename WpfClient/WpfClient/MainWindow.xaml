@@ -40,10 +40,10 @@
         </Grid.Background>
         <Grid VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/> <!-- Auto width for the image -->
-                <ColumnDefinition Width="Auto"/> <!-- Auto width for the line -->
-                <ColumnDefinition Width="Auto"/> <!-- Auto width for the text -->
-                <ColumnDefinition/> <!-- Auto width for the text -->
+                <ColumnDefinition Width="Auto"/> 
+                <ColumnDefinition Width="Auto"/> 
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Image HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Image.Source>

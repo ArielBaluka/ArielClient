@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfClient"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="SignUp" Height="600" Width="800">
+        Title="SignUp" Height="600" Width="830">
 
     <Window.Resources>
         <Style TargetType="Button">
@@ -69,10 +69,10 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Border Width="600"
+        <Border Width="625"
                 Height="500"
                 Background="#ecf0f1"
-                CornerRadius="10" Margin="100,42,100,42">
+                CornerRadius="10" Margin="100,5,100,5">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="15"
                                   Direction="-90"
@@ -172,11 +172,13 @@
                         <TextBlock Text="Birth date: " Foreground="#2b1465"/>
 
                         <DatePicker x:Name="SelDate" Width="100" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
-                                    HorizontalAlignment="Left" Background="White" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+                                    HorizontalAlignment="Left" Background="White" SelectedDateChanged="DatePicker_SelectedDateChanged" />
 
                     </StackPanel>
                 </Grid>
                 <DockPanel Margin="0,10" HorizontalAlignment="Center">
+                    <Button x:Name="BackBtn" Content="Back" Foreground="White" Background="DimGray"
+                        Height="35" Width="50" Click="BackBtn_Click"/>
                     <Button x:Name="SignUpBtn" Content="SignUp" Foreground="White" Background="#2b1465" 
                         Height="35" Width="250" Click="SignUpBtn_Click"/>
                     <Button x:Name="ClrBtn" Content="Clear" Foreground="White" Background="DimGray"
