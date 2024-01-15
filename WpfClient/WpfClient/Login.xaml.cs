@@ -65,7 +65,7 @@ namespace WpfClient
             User loggedUser = serviceClient.Login(user);
             if(loggedUser != null)
             {
-                HomePage homePage = new HomePage(user);
+                HomePage homePage = new HomePage(loggedUser);
                 this.Close();
                 homePage.ShowDialog();
             }

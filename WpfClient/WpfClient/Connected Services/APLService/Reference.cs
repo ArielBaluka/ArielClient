@@ -710,6 +710,12 @@ namespace WpfClient.APLService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/Login", ReplyAction="http://tempuri.org/IServiceBase/LoginResponse")]
         System.Threading.Tasks.Task<WpfClient.APLService.User> LoginAsync(WpfClient.APLService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetGameResults", ReplyAction="http://tempuri.org/IServiceBase/GetGameResultsResponse")]
+        WpfClient.APLService.GameList GetGameResults();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetGameResults", ReplyAction="http://tempuri.org/IServiceBase/GetGameResultsResponse")]
+        System.Threading.Tasks.Task<WpfClient.APLService.GameList> GetGameResultsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -905,6 +911,14 @@ namespace WpfClient.APLService {
         
         public System.Threading.Tasks.Task<WpfClient.APLService.User> LoginAsync(WpfClient.APLService.User user) {
             return base.Channel.LoginAsync(user);
+        }
+        
+        public WpfClient.APLService.GameList GetGameResults() {
+            return base.Channel.GetGameResults();
+        }
+        
+        public System.Threading.Tasks.Task<WpfClient.APLService.GameList> GetGameResultsAsync() {
+            return base.Channel.GetGameResultsAsync();
         }
     }
 }

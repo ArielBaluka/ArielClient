@@ -133,6 +133,12 @@
   <wsdl:message name="IServiceBase_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceBase_GetGameResults_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGameResults" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_GetGameResults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGameResultsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceBase">
     <wsdl:operation name="GetAllUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetAllUsers" message="tns:IServiceBase_GetAllUsers_InputMessage" />
@@ -217,6 +223,10 @@
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/Login" message="tns:IServiceBase_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/LoginResponse" message="tns:IServiceBase_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameResults">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetGameResults" message="tns:IServiceBase_GetGameResults_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/GetGameResultsResponse" message="tns:IServiceBase_GetGameResults_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceBase" type="tns:IServiceBase">
@@ -403,6 +413,15 @@
     </wsdl:operation>
     <wsdl:operation name="Login">
       <soap:operation soapAction="http://tempuri.org/IServiceBase/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameResults">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/GetGameResults" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

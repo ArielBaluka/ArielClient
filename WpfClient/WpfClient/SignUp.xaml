@@ -72,7 +72,7 @@
         <Border Width="625"
                 Height="500"
                 Background="#ecf0f1"
-                CornerRadius="10" Margin="100,5,100,5">
+                CornerRadius="10" Margin="90,5,90,5">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="15"
                                   Direction="-90"

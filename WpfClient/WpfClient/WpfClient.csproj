@@ -60,6 +60,7 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -75,8 +76,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="GameResultUC.xaml.cs">
+      <DependentUpon>GameResultUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyGroupUC.xaml.cs">
+      <DependentUpon>MyGroupUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
@@ -85,6 +92,10 @@
       <DependentUpon>UpcomingGameUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validation.cs" />
+    <Page Include="GameResultUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -108,6 +119,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MyGroupUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SignUp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -163,6 +178,7 @@
     <None Include="Connected Services\APLService\WpfClient.APLService.UserList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <Resource Include="fonts\BlackerStrokesPersonaluse-Regular.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -198,6 +214,28 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pictures\groups\1.png" />
+    <Resource Include="pictures\groups\2.png" />
+    <Resource Include="pictures\groups\3.png" />
+    <Resource Include="pictures\groups\4.png" />
+    <Resource Include="pictures\groups\5.png" />
+    <Resource Include="pictures\groups\6.png" />
+    <Resource Include="pictures\groups\7.png" />
+    <Resource Include="pictures\groups\8.png" />
+    <Resource Include="pictures\groups\9.png" />
+    <Resource Include="pictures\groups\10.png" />
+    <Resource Include="pictures\groups\11.png" />
+    <Resource Include="pictures\groups\12.png" />
+    <Resource Include="pictures\groups\14.png" />
+    <Resource Include="pictures\groups\13.png" />
+    <Resource Include="pictures\groups\15.png" />
+    <Resource Include="pictures\groups\16.png" />
+    <Resource Include="pictures\groups\17.png" />
+    <Resource Include="pictures\groups\18.png" />
+    <Resource Include="pictures\groups\19.png" />
+    <Resource Include="pictures\groups\20.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />

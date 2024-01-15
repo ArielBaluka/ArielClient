@@ -33,9 +33,9 @@
         <!-- Set a gradient background with dynamic colors -->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#39c9bb" Offset="0"/>
-                <GradientStop Color="#207068" Offset="0.3"/>
-                <GradientStop Color="#13433e" Offset="0.9"/>
+                <GradientStop Color="Purple" Offset="0"/>
+                <GradientStop Color="MediumPurple" Offset="0.8"/>
+                <GradientStop Color="Cyan" Offset="0.5"/>
             </LinearGradientBrush>
         </Grid.Background>
         <Grid VerticalAlignment="Top">
