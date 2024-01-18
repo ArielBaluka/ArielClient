@@ -25,7 +25,7 @@ namespace WpfClient
     {
         User client;
         APLService.ServiceBaseClient serviceClient;
-
+        GameList games;
         public HomePage(User user)
         {
             client = user;
@@ -33,7 +33,7 @@ namespace WpfClient
             this.DataContext = user;
             welcomeTxt.Text += " " + user.UserName + "!";
             serviceClient = new APLService.ServiceBaseClient();
-
+            games = serviceClient.GetAllGames();
         }
 
         private void ButtonCloseApp_Click(object sender, RoutedEventArgs e)
@@ -46,17 +46,14 @@ namespace WpfClient
             ButtonAutomationPeer peer = new ButtonAutomationPeer(ButtonClose);
             IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
             invokeProv.Invoke();
-            GridMain.Children.Clear();
+            ItemsSP.Children.Clear();
         }
         private void RecentGames_Selected(object sender, RoutedEventArgs e)
         {
             ServiceBaseClient client = new ServiceBaseClient();
-            GameList games = serviceClient.GetAllGames();
+
             closeMenu();
-            for (int i = games.Count() -6; i < games.Count()-1; i++)
-            {
-                ItemsSP.Children.Add(new GameResultUC(games[i]));
-            }
+            GridMain.Children.Add(new GameManagmentUC(games));
             welcomeTxt.Text = "RecentGames";
         }
 
@@ -69,10 +66,13 @@ namespace WpfClient
         private void MyGroup_Selected(object sender, RoutedEventArgs e)
         {
             closeMenu();
-            GridMain.Children.Add(new MyGroupUC(client));
+            MyGroupUC myGroupUC = new MyGroupUC(client);
+            myGroupUC.Height = ActualHeight * 0.9;
+            ItemsSP.Children.Add(myGroupUC);
             GridMain.Visibility = Visibility.Visible;
             welcomeTxt.Text = "selected my group";
         }
+
 
         private void TopGuessers_Selected(object sender, RoutedEventArgs e)
         {

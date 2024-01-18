@@ -76,6 +76,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="GameManagmentUC.xaml.cs">
+      <DependentUpon>GameManagmentUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameResultUC.xaml.cs">
       <DependentUpon>GameResultUC.xaml</DependentUpon>
     </Compile>
@@ -92,6 +95,10 @@
       <DependentUpon>UpcomingGameUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validation.cs" />
+    <Page Include="GameManagmentUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GameResultUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -40,6 +40,7 @@ namespace WpfClient
 
             HomeNameTXT.Text = HName;
             AwayNameTXT.Text = AName;
+            DateTXT.Text = game.Date.ToShortDateString();
         }
     }
 }

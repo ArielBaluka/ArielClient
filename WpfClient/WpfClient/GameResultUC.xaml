@@ -6,27 +6,8 @@
              xmlns:local="clr-namespace:WpfClient"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="600">
-    <UserControl.Resources>
-        <Style TargetType="Button">
-            <Setter Property="FontFamily" Value="fonts/#Blacker Strokes - Personal Use"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="Border" Background="{TemplateBinding Background}" CornerRadius="16" BorderBrush="Transparent" BorderThickness="1">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#2980b9" TargetName="Border"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </UserControl.Resources>
 
-    <Border BorderThickness="8" BorderBrush="Black">
+        <Border BorderThickness="8" BorderBrush="Black" Margin="10">
         <Grid>
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -62,6 +43,7 @@
 
             <TextBox x:Name="HomeScoreTXT" Grid.Row="1" Grid.Column="0" FontFamily="fonts/#Blacker Strokes - Personal Use" FontSize="20" HorizontalAlignment="Center"/>
             <TextBox x:Name="AwayScoreTXT" Grid.Row="1" Grid.Column="2" FontFamily="fonts/#Blacker Strokes - Personal Use" FontSize="20" HorizontalAlignment="Center"/>
+            <TextBox x:Name="DateTXT" Grid.Row="2" Grid.Column="1" FontFamily="fonts/#Blacker Strokes - Personal Use" FontSize="12" HorizontalAlignment="Center"/>
         </Grid>
     </Border>
 </UserControl>
