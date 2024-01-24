@@ -21,10 +21,22 @@ namespace WpfClient
     /// </summary>
     public partial class UpcomingGameUC : UserControl
     {
-        public UpcomingGameUC()
+        public UpcomingGameUC(Game game)
         {
             InitializeComponent();
-            
+
+            string HName = game.HOMETEAM.GroupName;
+            string AName = game.AWAYTEAM.GroupName;
+            int Hscore = game.HOMESCORE;
+            int Ascore = game.AWAYSCORE;
+            string Hpath = "pack://application:,,,/WpfClient;component/pictures/groups/" + (game.HOMETEAM.ID - 1).ToString() + ".png";
+            string Apath = "pack://application:,,,/WpfClient;component/pictures/groups/" + (game.AWAYTEAM.ID - 1).ToString() + ".png";
+            hgroupPic.Source = new BitmapImage(new Uri(Hpath));
+            agroupPic.Source = new BitmapImage(new Uri(Apath));
+
+            GropABtn.Content = HName;
+            GroupBBtn.Content = AName;
+            DateTxT.Text = game.Date.ToShortDateString();
         }
     }
 }

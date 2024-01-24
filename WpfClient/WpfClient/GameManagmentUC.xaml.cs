@@ -22,38 +22,46 @@ namespace WpfClient
     public partial class GameManagmentUC : UserControl
     {
         GameList gameLst;
+        GameList DisplayLst;
         int gamesDisplayed;
         public GameManagmentUC(GameList games)
         {
             InitializeComponent();
             ServiceBaseClient client = new ServiceBaseClient();
+            DisplayLst = new GameList();
             gameLst = games;
-            for (int i = gameLst.Count() - 1; i > gameLst.Count() - 10; i--)
-            {
-                GamesSP.Children.Add(new GameResultUC(gameLst[i]));
-            }
             gamesDisplayed = 10;
+            for (int i = 0; i < gamesDisplayed; i++)
+                DisplayLst.Add(games[games.Count() -1 - i]);
+
+            foreach(Game game in DisplayLst)
+                GamesSP.Children.Add(new GameResultUC(game));
         }
         private void loadMoreBtn_Click(object sender, RoutedEventArgs e)
         {
             if(GroupTxt.Text == "")
             {
-                int gamesToShow = gameLst.Count() - gamesDisplayed;
-                int addedCount = 0;
-                if (gamesToShow > 0)
-                {
-                    for (int i = gameLst.Count() - gamesDisplayed; i > gameLst.Count() - gamesDisplayed - Math.Min(gamesToShow, 10); i--)
-                    {
-                        GamesSP.Children.Add(new GameResultUC(gameLst[i]));
-                        addedCount++;
-                    }
-                }
-                gamesDisplayed += addedCount;
+                showGames(gameLst);
             }
-            //else
-            //{
-            //    LoadFilterGames
-            //}
+            else
+            {
+                showGames(DisplayLst);
+            }
+        }
+
+        private void showGames(GameList lst)
+        {
+            int gamesToShow = lst.Count() - gamesDisplayed;
+            int addedCount = 0;
+            if (gamesToShow > 0)
+            {
+                for (int i = lst.Count() - gamesDisplayed - 1; i > lst.Count() - gamesDisplayed - Math.Min(gamesToShow, 10) - 1; i--)
+                {
+                    GamesSP.Children.Add(new GameResultUC(lst[i]));
+                    addedCount++;
+                }
+            }
+            gamesDisplayed += addedCount;
         }
 
         private void LoadFilterGames(GameList list, List<Game> xlist, int lim)
@@ -68,13 +76,21 @@ namespace WpfClient
             if (xlist != null)
             {
                 int count = 0;
-                // Add MiniExerciseUC controls to the collection
-                foreach (var game in xlist)
+                DisplayLst = new GameList();
+                foreach (var x in xlist)
                 {
-                    if(count < lim)
-                        GamesSP.Children.Add(new GameResultUC(game));
-                    count++;
+                    DisplayLst.Add(x);
                 }
+                for (int i = xlist.Count - 1; i >= 0; i--)
+                {
+                    Game game = xlist[i];
+                    if (count < lim)
+                    {
+                        GamesSP.Children.Add(new GameResultUC(game));
+                        count++;
+                    }
+                }
+                gamesDisplayed = 10;
             }
         }
 
@@ -82,7 +98,7 @@ namespace WpfClient
         {
             List<Game> list = gameLst.FindAll(game => game.AWAYTEAM.GroupName.ToUpper().Contains(GroupTxt.Text.ToUpper().Trim()) ||
             game.HOMETEAM.GroupName.ToUpper().Contains(GroupTxt.Text.ToUpper().Trim()));
-
+            gamesDisplayed = 0; // reset games displayed to minimum value
             LoadFilterGames(null, list, 10);
 
         }

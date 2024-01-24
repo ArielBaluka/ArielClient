@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfClient"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="600">
+             d:DesignHeight="350" d:DesignWidth="600">
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="FontFamily" Value="fonts/#Blacker Strokes - Personal Use"/>
@@ -26,7 +26,7 @@
         </Style>
     </UserControl.Resources>
 
-    <Border BorderThickness="8" BorderBrush="Black">
+    <Border BorderThickness="8" BorderBrush="Black" Margin="10" Height="300">
         <Grid>
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -44,14 +44,23 @@
                 <RowDefinition Height="4*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+
+            <TextBlock x:Name="DateTxT" HorizontalAlignment="Center" FontSize="15" FontWeight="Bold" FontStyle="Oblique"
+                    Grid.Column="1" VerticalAlignment="Top" FontFamily="fonts/#Blacker Strokes - Personal Use"/>
             <TextBlock Text="VS." HorizontalAlignment="Center" FontSize="50" FontWeight="Bold" FontStyle="Oblique"
                     Grid.Column="1" VerticalAlignment="Center" FontFamily="fonts/#Blacker Strokes - Personal Use"/>
 
-            <Button x:Name="DrawBtn" Content="Draw" Foreground="White" Background="Black" Height="35" Width="100"
+
+            <Image Height="140" x:Name="hgroupPic" Grid.Column="0" Grid.Row="0"/>
+            <Image Height="140" x:Name="agroupPic" Grid.Column="2" Grid.Row="0"/>
+
+
+
+            <Button x:Name="DrawBtn" Content="Draw" Foreground="Black" Background="MediumPurple" Height="35" Width="100"
                  Grid.Column="1" Grid.Row="1"/>
-            <Button x:Name="GropABtn" Content="Group A" Foreground="White" Background="Black" Height="35" Width="100"
+            <Button x:Name="GropABtn" Content="Group A" Foreground="Black" Background="MediumPurple" Height="35" Width="220"
                  Grid.Column="0" Grid.Row="1"/>
-            <Button x:Name="GroupBBtn" Content="Group B" Foreground="White" Background="Black" Height="35" Width="100"
+            <Button x:Name="GroupBBtn" Content="Group B" Foreground="Black" Background="MediumPurple" Height="35" Width="220"
                 Grid.Column="2" Grid.Row="1"/>
         </Grid>
     </Border>

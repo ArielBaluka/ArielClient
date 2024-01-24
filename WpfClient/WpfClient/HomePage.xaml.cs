@@ -25,6 +25,8 @@ namespace WpfClient
     {
         User client;
         APLService.ServiceBaseClient serviceClient;
+        GameList gameResults;
+        GameList futureGames;
         GameList games;
         public HomePage(User user)
         {
@@ -34,6 +36,35 @@ namespace WpfClient
             welcomeTxt.Text += " " + user.UserName + "!";
             serviceClient = new APLService.ServiceBaseClient();
             games = serviceClient.GetAllGames();
+
+            gameResults = GetGameResults();
+            futureGames = GetGuessGames();
+        }
+
+        public GameList GetGameResults()
+        {
+            GameList gameres = new GameList();
+            foreach (Game game in games)
+            {
+                if(game.AWAYSCORE != -1)
+                {
+                    gameres.Add(game);
+                }
+            }
+            return gameres;
+        }
+
+        public GameList GetGuessGames()
+        {
+            GameList gameres = new GameList();
+            foreach (Game game in games)
+            {
+                if (game.AWAYSCORE == -1)
+                {
+                    gameres.Add(game);
+                }
+            }
+            return gameres;
         }
 
         private void ButtonCloseApp_Click(object sender, RoutedEventArgs e)
@@ -46,14 +77,14 @@ namespace WpfClient
             ButtonAutomationPeer peer = new ButtonAutomationPeer(ButtonClose);
             IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
             invokeProv.Invoke();
-            ItemsSP.Children.Clear();
+            GridMain.Children.Clear();
         }
         private void RecentGames_Selected(object sender, RoutedEventArgs e)
         {
             ServiceBaseClient client = new ServiceBaseClient();
 
             closeMenu();
-            GridMain.Children.Add(new GameManagmentUC(games));
+            GridMain.Children.Add(new GameManagmentUC(gameResults));
             welcomeTxt.Text = "RecentGames";
         }
 
@@ -68,7 +99,7 @@ namespace WpfClient
             closeMenu();
             MyGroupUC myGroupUC = new MyGroupUC(client);
             myGroupUC.Height = ActualHeight * 0.9;
-            ItemsSP.Children.Add(myGroupUC);
+            GridMain.Children.Add(myGroupUC);
             GridMain.Visibility = Visibility.Visible;
             welcomeTxt.Text = "selected my group";
         }
@@ -90,8 +121,11 @@ namespace WpfClient
         private void UpcomingGames_Selected(object sender, RoutedEventArgs e)
         {
             closeMenu();
-            GridMain.Children.Add(new UpcomingGameUC());
+            GameList games = GetGuessGames();
+
+            GridMain.Children.Add(new GuessManegmentUC(futureGames));
             GridMain.Visibility = Visibility.Visible;
+
             welcomeTxt.Text = "upcoming games";
         }
     }

@@ -36,8 +36,8 @@
 
         <StackPanel VerticalAlignment="Bottom">
             <TextBlock Text="search group" FontFamily="fonts/#Blacker Strokes - Personal Use"/>
-            <TextBox x:Name="GroupTxt" TextChanged="GroupTxt_TextChanged"/>
-            <Button x:Name="loadMoreBtn" Content="load more" Height="100" Click="loadMoreBtn_Click"/>
+            <TextBox x:Name="GroupTxt" TextChanged="GroupTxt_TextChanged" Width="200"/>
+            <Button x:Name="loadMoreBtn" Content="load more" Height="100" Click="loadMoreBtn_Click" Background="MediumPurple"/>
         </StackPanel>
         
 
