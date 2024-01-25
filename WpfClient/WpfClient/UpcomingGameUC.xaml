@@ -57,11 +57,11 @@
 
 
             <Button x:Name="DrawBtn" Content="Draw" Foreground="Black" Background="MediumPurple" Height="35" Width="100"
-                 Grid.Column="1" Grid.Row="1"/>
+                 Grid.Column="1" Grid.Row="1" Click="Guess_Click"/>
             <Button x:Name="GropABtn" Content="Group A" Foreground="Black" Background="MediumPurple" Height="35" Width="220"
-                 Grid.Column="0" Grid.Row="1"/>
+                 Grid.Column="0" Grid.Row="1" Click="Guess_Click"/>
             <Button x:Name="GroupBBtn" Content="Group B" Foreground="Black" Background="MediumPurple" Height="35" Width="220"
-                Grid.Column="2" Grid.Row="1"/>
+                Grid.Column="2" Grid.Row="1" Click="Guess_Click"/>
         </Grid>
     </Border>
 </UserControl>

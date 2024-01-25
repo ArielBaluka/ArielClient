@@ -121,9 +121,8 @@ namespace WpfClient
         private void UpcomingGames_Selected(object sender, RoutedEventArgs e)
         {
             closeMenu();
-            GameList games = GetGuessGames();
 
-            GridMain.Children.Add(new GuessManegmentUC(futureGames));
+            GridMain.Children.Add(new GuessManegmentUC(futureGames, client));
             GridMain.Visibility = Visibility.Visible;
 
             welcomeTxt.Text = "upcoming games";

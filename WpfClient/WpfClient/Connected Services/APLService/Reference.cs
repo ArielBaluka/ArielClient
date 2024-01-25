@@ -716,6 +716,18 @@ namespace WpfClient.APLService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetGameResults", ReplyAction="http://tempuri.org/IServiceBase/GetGameResultsResponse")]
         System.Threading.Tasks.Task<WpfClient.APLService.GameList> GetGameResultsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/InsertNewGames", ReplyAction="http://tempuri.org/IServiceBase/InsertNewGamesResponse")]
+        void InsertNewGames();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/InsertNewGames", ReplyAction="http://tempuri.org/IServiceBase/InsertNewGamesResponse")]
+        System.Threading.Tasks.Task InsertNewGamesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/LoadResults", ReplyAction="http://tempuri.org/IServiceBase/LoadResultsResponse")]
+        void LoadResults();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/LoadResults", ReplyAction="http://tempuri.org/IServiceBase/LoadResultsResponse")]
+        System.Threading.Tasks.Task LoadResultsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -919,6 +931,22 @@ namespace WpfClient.APLService {
         
         public System.Threading.Tasks.Task<WpfClient.APLService.GameList> GetGameResultsAsync() {
             return base.Channel.GetGameResultsAsync();
+        }
+        
+        public void InsertNewGames() {
+            base.Channel.InsertNewGames();
+        }
+        
+        public System.Threading.Tasks.Task InsertNewGamesAsync() {
+            return base.Channel.InsertNewGamesAsync();
+        }
+        
+        public void LoadResults() {
+            base.Channel.LoadResults();
+        }
+        
+        public System.Threading.Tasks.Task LoadResultsAsync() {
+            return base.Channel.LoadResultsAsync();
         }
     }
 }

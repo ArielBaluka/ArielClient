@@ -22,13 +22,13 @@ namespace WpfClient
     public partial class GuessManegmentUC : UserControl
     {
         GameList gameLst;
-        public GuessManegmentUC(GameList games)
+        public GuessManegmentUC(GameList games, User user)
         {
             InitializeComponent();
             ServiceBaseClient client = new ServiceBaseClient();
             gameLst = games;
             foreach (Game game in games)
-                GamesSP.Children.Add(new UpcomingGameUC(game));
+                GamesSP.Children.Add(new UpcomingGameUC(game, user));
         }
     }
 }

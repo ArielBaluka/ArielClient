@@ -139,6 +139,18 @@
   <wsdl:message name="IServiceBase_GetGameResults_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetGameResultsResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceBase_InsertNewGames_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertNewGames" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_InsertNewGames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertNewGamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_LoadResults_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadResults" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_LoadResults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadResultsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceBase">
     <wsdl:operation name="GetAllUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetAllUsers" message="tns:IServiceBase_GetAllUsers_InputMessage" />
@@ -227,6 +239,14 @@
     <wsdl:operation name="GetGameResults">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetGameResults" message="tns:IServiceBase_GetGameResults_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/GetGameResultsResponse" message="tns:IServiceBase_GetGameResults_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewGames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/InsertNewGames" message="tns:IServiceBase_InsertNewGames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/InsertNewGamesResponse" message="tns:IServiceBase_InsertNewGames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadResults">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/LoadResults" message="tns:IServiceBase_LoadResults_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/LoadResultsResponse" message="tns:IServiceBase_LoadResults_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceBase" type="tns:IServiceBase">
@@ -422,6 +442,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetGameResults">
       <soap:operation soapAction="http://tempuri.org/IServiceBase/GetGameResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewGames">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/InsertNewGames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadResults">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/LoadResults" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
