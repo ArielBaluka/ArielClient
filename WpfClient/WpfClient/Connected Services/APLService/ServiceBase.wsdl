@@ -151,6 +151,12 @@
   <wsdl:message name="IServiceBase_LoadResults_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoadResultsResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceBase_CalculateUserPoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateUserPoint" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_CalculateUserPoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateUserPointResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceBase">
     <wsdl:operation name="GetAllUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetAllUsers" message="tns:IServiceBase_GetAllUsers_InputMessage" />
@@ -247,6 +253,10 @@
     <wsdl:operation name="LoadResults">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/LoadResults" message="tns:IServiceBase_LoadResults_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/LoadResultsResponse" message="tns:IServiceBase_LoadResults_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateUserPoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/CalculateUserPoint" message="tns:IServiceBase_CalculateUserPoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/CalculateUserPointResponse" message="tns:IServiceBase_CalculateUserPoint_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceBase" type="tns:IServiceBase">
@@ -460,6 +470,15 @@
     </wsdl:operation>
     <wsdl:operation name="LoadResults">
       <soap:operation soapAction="http://tempuri.org/IServiceBase/LoadResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateUserPoint">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/CalculateUserPoint" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

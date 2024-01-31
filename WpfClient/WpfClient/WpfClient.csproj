@@ -82,6 +82,9 @@
     <Compile Include="GameResultUC.xaml.cs">
       <DependentUpon>GameResultUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GuessersControlUC.xaml.cs">
+      <DependentUpon>GuessersControlUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GuessManegmentUC.xaml.cs">
       <DependentUpon>GuessManegmentUC.xaml</DependentUpon>
     </Compile>
@@ -97,12 +100,19 @@
     <Compile Include="UpcomingGameUC.xaml.cs">
       <DependentUpon>UpcomingGameUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserGuessUC.xaml.cs">
+      <DependentUpon>UserGuessUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Validation.cs" />
     <Page Include="GameManagmentUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GameResultUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GuessersControlUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpcomingGameUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserGuessUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -728,6 +728,12 @@ namespace WpfClient.APLService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/LoadResults", ReplyAction="http://tempuri.org/IServiceBase/LoadResultsResponse")]
         System.Threading.Tasks.Task LoadResultsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/CalculateUserPoint", ReplyAction="http://tempuri.org/IServiceBase/CalculateUserPointResponse")]
+        int CalculateUserPoint(WpfClient.APLService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/CalculateUserPoint", ReplyAction="http://tempuri.org/IServiceBase/CalculateUserPointResponse")]
+        System.Threading.Tasks.Task<int> CalculateUserPointAsync(WpfClient.APLService.User user);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -947,6 +953,14 @@ namespace WpfClient.APLService {
         
         public System.Threading.Tasks.Task LoadResultsAsync() {
             return base.Channel.LoadResultsAsync();
+        }
+        
+        public int CalculateUserPoint(WpfClient.APLService.User user) {
+            return base.Channel.CalculateUserPoint(user);
+        }
+        
+        public System.Threading.Tasks.Task<int> CalculateUserPointAsync(WpfClient.APLService.User user) {
+            return base.Channel.CalculateUserPointAsync(user);
         }
     }
 }
