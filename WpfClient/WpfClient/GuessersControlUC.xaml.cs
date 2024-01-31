@@ -37,9 +37,15 @@ namespace WpfClient
             }
 
             Dictionary<User, int> SortedUserScore = SortDictionaryByValue(userScore);
-
+            int count = 0;
             foreach(var uscore in SortedUserScore)
-                GuesserSP.Children.Add(new UserGuessUC(uscore.Key, uscore.Value));
+            {
+                if(count < 3)
+                    GuesserSP.Children.Add(new UserGuessUC(uscore.Key, uscore.Value, true));
+                else
+                    GuesserSP.Children.Add(new UserGuessUC(uscore.Key, uscore.Value, false));
+                count++;
+            }
         }
 
         static Dictionary<User, int> SortDictionaryByValue(Dictionary<User, int> dictionary)

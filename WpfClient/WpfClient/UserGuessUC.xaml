@@ -18,7 +18,7 @@
     </UserControl.Resources>
     
     <Border BorderBrush="#4f2f00" BorderThickness="10" Margin="10">
-        <Grid>
+        <Grid x:Name="GridUser">
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#a36c13" Offset="0.9"/>
@@ -35,7 +35,7 @@
             <Ellipse Fill="Black" Margin="-80,0,80,0"/>
             <Image x:Name="groupPic" Source="\pictures\groups\1.png" Grid.Column="0" Margin="-80,0,80,0">
                 <Image.Clip>
-                    <EllipseGeometry Center="140,150" RadiusX="70" RadiusY="200"/>
+                    <EllipseGeometry Center="140,150" RadiusX="80" RadiusY="200"/>
                 </Image.Clip>
             </Image>
             <TextBlock Text="User: " Grid.Column="1" x:Name="userTxT"/>
