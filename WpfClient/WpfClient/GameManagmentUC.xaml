@@ -33,13 +33,10 @@
         <ScrollViewer VerticalScrollBarVisibility="Auto" BorderBrush="Black" Grid.Column="1">
             <StackPanel x:Name="GamesSP"/>
         </ScrollViewer>
-
-        <StackPanel VerticalAlignment="Bottom">
+        <StackPanel>
             <TextBlock Text="search group" FontFamily="fonts/#Blacker Strokes - Personal Use"/>
             <TextBox x:Name="GroupTxt" TextChanged="GroupTxt_TextChanged" Width="200"/>
-            <Button x:Name="loadMoreBtn" Content="load more" Height="100" Click="loadMoreBtn_Click" Background="MediumPurple"/>
         </StackPanel>
-        
-
+        <Button x:Name="loadMoreBtn" Content="load more" Height="100" Width="150" Click="loadMoreBtn_Click" Background="MediumPurple" VerticalAlignment="Bottom"/>
     </Grid>
 </UserControl>

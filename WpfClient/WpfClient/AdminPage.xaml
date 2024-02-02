@@ -1,0 +1,36 @@
+﻿<Window x:Class="WpfClient.AdminPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfClient"
+        mc:Ignorable="d"
+        Title="AdminPage" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#34495E" Offset="0.2"/>
+                        <GradientStop Color="#34495E" Offset="0.9"/>
+                        <GradientStop Color="White" Offset="0.5"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <TextBlock Text="Admin Page" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="Black" FontSize="25" FontFamily="fonts/#Blacker Strokes - Personal Use"/>
+            </Grid>
+            <Grid Width="200" Background="#570987" VerticalAlignment="Stretch" HorizontalAlignment="Left">
+                    <Grid Margin="0,300,0,20">
+                        <TextBlock Text="Admin" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="24"/>
+                    </Grid>
+
+                    <StackPanel Margin="0,50,0,0">
+                        <Button Content="Insert Game Results" Background="#7D0DC3" Foreground="White" Margin="10" Padding="10" Height="50" Click="Button_Click"/>
+                        <Button Content="Insert Guess Options" Background="#7D0DC3" Foreground="White" Margin="10" Padding="10" Height="50"/>
+                        <Button Content="Edit Users" Background="#7D0DC3" Foreground="White" Margin="10" Padding="10" Height="50"/>
+                    </StackPanel>
+               
+            </Grid>
+            
+        </Grid>
+    </Grid>
+</Window>
