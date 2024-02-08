@@ -27,6 +27,9 @@
                 <Image Height="140" x:Name="groupPic"
                        Source="\pictures\groups\1.png"/>
             </Grid>
+
+            <TextBlock x:Name="dataTxT" Grid.Column="1" FontSize="16"/>
+
         </Grid>
     </Border>
 </UserControl>

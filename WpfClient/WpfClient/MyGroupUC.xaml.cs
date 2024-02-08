@@ -73,6 +73,11 @@ namespace WpfClient
 
             }
 
+
+            ServiceBaseClient service = new ServiceBaseClient();
+            dataTxT.Text = service.GetGroupData(user.FAVORITEGROUP);
+
+
         }
     }
 }

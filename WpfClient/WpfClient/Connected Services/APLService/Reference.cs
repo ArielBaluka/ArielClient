@@ -669,6 +669,12 @@ namespace WpfClient.APLService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/UpdateGuess", ReplyAction="http://tempuri.org/IServiceBase/UpdateGuessResponse")]
         System.Threading.Tasks.Task<int> UpdateGuessAsync(WpfClient.APLService.Guess guess);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/UpdateAllGuesses", ReplyAction="http://tempuri.org/IServiceBase/UpdateAllGuessesResponse")]
+        void UpdateAllGuesses();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/UpdateAllGuesses", ReplyAction="http://tempuri.org/IServiceBase/UpdateAllGuessesResponse")]
+        System.Threading.Tasks.Task UpdateAllGuessesAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/UpdatePlayer", ReplyAction="http://tempuri.org/IServiceBase/UpdatePlayerResponse")]
         int UpdatePlayer(WpfClient.APLService.Player player);
         
@@ -734,6 +740,12 @@ namespace WpfClient.APLService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/CalculateUserPoint", ReplyAction="http://tempuri.org/IServiceBase/CalculateUserPointResponse")]
         System.Threading.Tasks.Task<int> CalculateUserPointAsync(WpfClient.APLService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetGroupData", ReplyAction="http://tempuri.org/IServiceBase/GetGroupDataResponse")]
+        string GetGroupData(WpfClient.APLService.Group group);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetGroupData", ReplyAction="http://tempuri.org/IServiceBase/GetGroupDataResponse")]
+        System.Threading.Tasks.Task<string> GetGroupDataAsync(WpfClient.APLService.Group group);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -875,6 +887,14 @@ namespace WpfClient.APLService {
             return base.Channel.UpdateGuessAsync(guess);
         }
         
+        public void UpdateAllGuesses() {
+            base.Channel.UpdateAllGuesses();
+        }
+        
+        public System.Threading.Tasks.Task UpdateAllGuessesAsync() {
+            return base.Channel.UpdateAllGuessesAsync();
+        }
+        
         public int UpdatePlayer(WpfClient.APLService.Player player) {
             return base.Channel.UpdatePlayer(player);
         }
@@ -961,6 +981,14 @@ namespace WpfClient.APLService {
         
         public System.Threading.Tasks.Task<int> CalculateUserPointAsync(WpfClient.APLService.User user) {
             return base.Channel.CalculateUserPointAsync(user);
+        }
+        
+        public string GetGroupData(WpfClient.APLService.Group group) {
+            return base.Channel.GetGroupData(group);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetGroupDataAsync(WpfClient.APLService.Group group) {
+            return base.Channel.GetGroupDataAsync(group);
         }
     }
 }
