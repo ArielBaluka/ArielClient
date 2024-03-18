@@ -26,7 +26,7 @@ namespace WpfClient
         APLService.ServiceBaseClient serviceClient;
         private GroupList groups = new GroupList();
         Player player;
-
+        PlayerUC playerUC;
         public AddPlayerUC()
         {
             InitializeComponent();
@@ -34,6 +34,9 @@ namespace WpfClient
             player = new Player { FirstName = "", LastName = "", IsCaptain = false, Number = 1 };
             this.DataContext = player;
             groups = serviceClient.GetAllGroups();
+
+            playerUC = new PlayerUC(player);
+            playercard.Children.Add(playerUC);
             addGroups();
         }
         public void addGroups()
@@ -67,75 +70,13 @@ namespace WpfClient
         private void GroupComboBox_Selected(object sender, RoutedEventArgs e)
         {
             Group g = (Group)GroupComboBox.SelectedItem;
-            DecorateShirt(g);
+            playerUC.DecorateShirt(g);
 
         }
-        private void DecorateShirt(Group g)
-        {
-            string path = "pack://application:,,,/WpfClient;component/pictures/groups/" + (g.ID - 1).ToString() + ".png";
-            groupPic.Source = new BitmapImage(new Uri(path));
-            string GName = g.GroupName;
-            if (GName == "Arsenal" || GName == "Bournemouth" || GName == "Liverpool" ||
-                GName == "Manchester United" || GName == "Nottingham Forest" || GName == "Sheffield United")
-            {
-                Shirt1.Background = Brushes.Red;
-                Shirt2.Fill = Brushes.Red;
-                Shirt3.Fill = Brushes.Red;
-            }
-            if (GName == "Aston Villa" || GName == "Burnley" || GName == "West Ham United")
-            {
-                Shirt1.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#5F021F"));
-                Shirt2.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#5F021F"));
-                Shirt3.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#5F021F"));
-            }
-            if (GName == "Manchester City" || GName == "Newcastle United")
-            {
-                Shirt1.Background = Brushes.LightBlue;
-                Shirt2.Fill = Brushes.LightBlue;
-                Shirt3.Fill = Brushes.LightBlue;
-            }
-            if (GName == "Brighton" || GName == "Crystal Palace" || GName == "Everton")
-            {
-                Shirt1.Background = Brushes.Blue;
-                Shirt2.Fill = Brushes.Blue;
-                Shirt3.Fill = Brushes.Blue;
-            }
-            switch (GName)
-            {
-                case "Chelsea":
-                    Shirt1.Background = Brushes.DarkBlue;
-                    Shirt2.Fill = Brushes.DarkBlue;
-                    Shirt3.Fill = Brushes.DarkBlue;
-                    break;
-                case "Fulham":
-                    Shirt1.Background = Brushes.White;
-                    Shirt2.Fill = Brushes.White;
-                    Shirt3.Fill = Brushes.White;
-                    break;
-                case "Luton Town":
-                    Shirt1.Background = Brushes.Orange;
-                    Shirt2.Fill = Brushes.Orange;
-                    Shirt3.Fill = Brushes.Orange;
-                    break;
-                case "Tottenham Hotspur":
-                    Shirt1.Background = Brushes.Gray;
-                    Shirt2.Fill = Brushes.Gray;
-                    Shirt3.Fill = Brushes.Gray;
-                    break;
-                case "Wolverhampton Wanderers":
-                    Shirt1.Background = Brushes.Yellow;
-                    Shirt2.Fill = Brushes.Yellow;
-                    Shirt3.Fill = Brushes.Yellow;
-                    break;
-                default:
-                    break;
-
-            }
-        }
-
+        
         private void tbNUM_TextChanged(object sender, TextChangedEventArgs e)
         {
-            numDec.Text = tbNUM.Text;
+            playerUC.ChangerNumber(tbNUM.Text);
         }
     }
 }

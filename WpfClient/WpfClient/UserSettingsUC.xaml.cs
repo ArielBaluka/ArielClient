@@ -23,12 +23,14 @@ namespace WpfClient
     {
         private User dataUser;
         private User saveUser;
+        APLService.ServiceBaseClient serviceClient;
+
         public UserSettingsUC(User user)
         {
             InitializeComponent();
             this.dataUser = user;
             this.DataContext = dataUser;
-
+            serviceClient = new APLService.ServiceBaseClient();
             saveUser = new User { UserName = user.UserName, PassWord = user.PassWord, EMAIL = user.EMAIL};   
         }
 
@@ -37,6 +39,20 @@ namespace WpfClient
             dataUser.UserName = saveUser.UserName;
             dataUser.PassWord = saveUser.PassWord;
             dataUser.EMAIL = saveUser.EMAIL;
+        }
+
+        private void UpdateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataUser.UserName != saveUser.UserName && dataUser.PassWord != saveUser.PassWord
+                && dataUser.EMAIL != dataUser.EMAIL)
+            {
+                serviceClient.UpdateUser(dataUser);
+                MessageBox.Show("user updated!");
+            }
+            else
+            {
+                MessageBox.Show("nothing has changed");
+            }
         }
     }
 }

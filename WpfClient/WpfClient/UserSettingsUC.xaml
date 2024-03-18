@@ -96,20 +96,20 @@
                            Foreground="#2b1465"/>
                 <Grid VerticalAlignment="Center">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0*"/>
+                        <RowDefinition Height="0*"/>
+                        <RowDefinition Height="9*"/>
+                        <RowDefinition Height="7*"/>
+                        <RowDefinition Height="9*"/>
+                        <RowDefinition Height="27.6"/>
+                        <RowDefinition Height="0*"/>
+                        <RowDefinition Height="0*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                   
+
 
                     <TextBlock Text="Username" Margin="0,10" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Foreground="#2b1465"/>
                     <TextBlock Text="Password" Margin="0,10" Grid.Row="2" Grid.Column="1" HorizontalAlignment="left" Foreground="#2b1465"/>
@@ -122,31 +122,30 @@
                         </Binding>
                     </TextBox>
 
-                    <PasswordBox x:Name="tbxPassword" Grid.Row="3" Grid.Column="1" BorderBrush="Gray" HorizontalAlignment="left" Width="200"/>
-
-                    <TextBlock Text="Phone number" Margin="0,10" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Foreground="#2b1465"/>
-                    <TextBlock Text="Email" Margin="0,10" Grid.Row="4" Grid.Column="1" HorizontalAlignment="left" Foreground="#2b1465"/>
-
-                    <TextBox x:Name="tbPN" Grid.Row="5" Grid.Column="0" Padding="0,5">
-                        <Binding Path="PhoneNumber" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+                    <TextBox x:Name="tbxPassword" Grid.Row="3" Grid.Column="1" BorderBrush="Gray" HorizontalAlignment="left" Width="200">
+                        <Binding Path="PassWord" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
                             <Binding.ValidationRules>
-                                <local:ValidPhoneNumber/>
+                                <local:ValidPassword/>
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox>
 
-                    <TextBox x:Name="tbEM" Grid.Row="5" Grid.Column="1" Padding="0,5">
+                    <TextBlock Text="Email" Margin="0,10" Grid.Row="4" Grid.Column="0" HorizontalAlignment="left" Foreground="#2b1465"/>
+
+
+
+                    <TextBox x:Name="tbEM" Grid.Row="5" Grid.Column="0" Padding="0,5">
                         <Binding Path="EMAIL" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
                             <Binding.ValidationRules>
                                 <local:ValidEmail/>
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox>
-                    
+
                 </Grid>
                 <StackPanel HorizontalAlignment="Right">
                     <Button Margin="0,10,0,0" x:Name="UpdateBtn" Content="Update" Foreground="White" Background="#2b1465" 
-                        Height="35" Width="100"/>
+                        Height="35" Width="100" Click="UpdateBtn_Click"/>
                     <Button x:Name="ClrBtn" Content="Clear" Foreground="White" Background="DimGray"
                         Height="35" Width="100" Click="ClrBtn_Click"/>
                 </StackPanel>

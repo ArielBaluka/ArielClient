@@ -64,7 +64,13 @@
             <ColumnDefinition Width="0.7*"/>
             <ColumnDefinition Width="0.2*"/>
         </Grid.ColumnDefinitions>
-        <Border Background="LightGray" BorderBrush="Black" BorderThickness="3" Grid.Column="1">
+
+        <Grid x:Name="playercard" Grid.Column="1">
+            
+        </Grid>
+        
+        
+        <!--<Border Background="LightGray" BorderBrush="Black" BorderThickness="3" Grid.Column="1">
             <Grid Grid.Column="1">
                 <TextBlock Text="Moshe" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Margin="0,20"/>
                 <Grid>
@@ -101,11 +107,11 @@
                 </Grid>
 
 
-                <!-- Jersey number -->
+                --><!-- Jersey number --><!--
                 <TextBlock x:Name="numDec" Text="1" Foreground="White" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 
             </Grid>
-        </Border>
+        </Border>-->
 
         <StackPanel Grid.Row="0">
             <TextBlock Text="Player First Name"/>
@@ -144,7 +150,7 @@
                     <SolidColorBrush x:Key="MaterialDesignPaper" Color="White"/>
                 </ComboBox.Resources>
             </ComboBox>
-            <CheckBox x:Name="yesNoCheckBox" Content="Yes" IsChecked="False" Checked="CheckBox_Checked" Background="Black"/>
+            <CheckBox x:Name="yesNoCheckBox" Content="is captain" IsChecked="False" Checked="CheckBox_Checked" Background="Black"/>
         </StackPanel>
 
         <Button x:Name="AddPlayerBtn" Content="Add Player" Foreground="White" Background="#2b1465" 
