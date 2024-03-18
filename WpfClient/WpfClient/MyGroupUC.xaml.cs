@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfClient.APLService;
+using WpfClient.ClientNewsService;
 
 namespace WpfClient
 {
@@ -31,7 +32,7 @@ namespace WpfClient
         {
             string GName = user.FAVORITEGROUP.GroupName;
             string path = "pack://application:,,,/WpfClient;component/pictures/groups/" + (user.FAVORITEGROUP.ID-1).ToString() + ".png";
-            NameTxt.Text = Name;
+            NameTxt.Text = GName;
             groupPic.Source = new BitmapImage(new Uri(path));
 
             if(GName == "Arsenal" || GName == "Bournemouth" || GName == "Liverpool" || 
@@ -72,12 +73,9 @@ namespace WpfClient
                     break;
 
             }
-
-
             ServiceBaseClient service = new ServiceBaseClient();
-            dataTxT.Text = service.GetGroupData(user.FAVORITEGROUP);
-
-
+            NewsServiceClient clientNewsService = new NewsServiceClient();
+            dataTxT.Text = clientNewsService.GetGroupData(user.FAVORITEGROUP.GroupName);
         }
     }
 }

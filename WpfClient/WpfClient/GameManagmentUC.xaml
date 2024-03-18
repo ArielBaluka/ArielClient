@@ -30,13 +30,15 @@
             <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" BorderBrush="Black" Grid.Column="1">
-            <StackPanel x:Name="GamesSP"/>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Grid.Column="1" >
+            <StackPanel>
+                <StackPanel x:Name="GamesSP" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+                <Button x:Name="loadMoreBtn" Content="load more" Height="80" Click="loadMoreBtn_Click" Background="MediumPurple" VerticalAlignment="Bottom"/>
+            </StackPanel>
         </ScrollViewer>
         <StackPanel>
-            <TextBlock Text="search group" FontFamily="fonts/#Blacker Strokes - Personal Use"/>
-            <TextBox x:Name="GroupTxt" TextChanged="GroupTxt_TextChanged" Width="200"/>
+            <TextBlock Text="search group" Margin="0,16,0,0" HorizontalAlignment="Center" FontFamily="fonts/#Blacker Strokes - Personal Use"/>
+            <TextBox x:Name="GroupTxt" TextChanged="GroupTxt_TextChanged" Margin="8" Height="36" FontSize="16" Background="White" BorderBrush="Gray" BorderThickness="2"/>
         </StackPanel>
-        <Button x:Name="loadMoreBtn" Content="load more" Height="100" Width="150" Click="loadMoreBtn_Click" Background="MediumPurple" VerticalAlignment="Bottom"/>
     </Grid>
 </UserControl>

@@ -25,6 +25,12 @@
   <wsdl:message name="IServiceBase_GetAllGroups_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllGroupsResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceBase_GetAllGroupsByPoints_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroupsByPoints" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_GetAllGroupsByPoints_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroupsByPointsResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceBase_GetAllGuesses_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllGuesses" />
   </wsdl:message>
@@ -169,6 +175,12 @@
   <wsdl:message name="IServiceBase_GetGroupData_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetGroupDataResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceBase_DoesPlayerExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:DoesPlayerExist" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_DoesPlayerExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DoesPlayerExistResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceBase">
     <wsdl:operation name="GetAllUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetAllUsers" message="tns:IServiceBase_GetAllUsers_InputMessage" />
@@ -181,6 +193,10 @@
     <wsdl:operation name="GetAllGroups">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetAllGroups" message="tns:IServiceBase_GetAllGroups_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/GetAllGroupsResponse" message="tns:IServiceBase_GetAllGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroupsByPoints">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetAllGroupsByPoints" message="tns:IServiceBase_GetAllGroupsByPoints_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/GetAllGroupsByPointsResponse" message="tns:IServiceBase_GetAllGroupsByPoints_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllGuesses">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetAllGuesses" message="tns:IServiceBase_GetAllGuesses_InputMessage" />
@@ -278,6 +294,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetGroupData" message="tns:IServiceBase_GetGroupData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/GetGroupDataResponse" message="tns:IServiceBase_GetGroupData_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="DoesPlayerExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/DoesPlayerExist" message="tns:IServiceBase_DoesPlayerExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/DoesPlayerExistResponse" message="tns:IServiceBase_DoesPlayerExist_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceBase" type="tns:IServiceBase">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -301,6 +321,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllGroups">
       <soap:operation soapAction="http://tempuri.org/IServiceBase/GetAllGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroupsByPoints">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/GetAllGroupsByPoints" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -517,6 +546,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetGroupData">
       <soap:operation soapAction="http://tempuri.org/IServiceBase/GetGroupData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoesPlayerExist">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/DoesPlayerExist" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

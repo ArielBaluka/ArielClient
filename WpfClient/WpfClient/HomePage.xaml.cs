@@ -92,6 +92,8 @@ namespace WpfClient
         private void LeaderBoard_Selected(object sender, RoutedEventArgs e)
         {
             closeMenu();
+            AllGroupsUC groupsUC = new AllGroupsUC();
+            GridMain.Children.Add(groupsUC);
             welcomeTxt.Text = "selected leaderboard";
         }
 
@@ -117,7 +119,7 @@ namespace WpfClient
         private void Settings_Selected(object sender, RoutedEventArgs e)
         {
             closeMenu();
-
+            GridMain.Children.Add(new UserSettingsUC(client));
             welcomeTxt.Text = "selected settings";
         }
 

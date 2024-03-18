@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,12 +22,14 @@ namespace WpfClient
     /// </summary>
     public partial class GameManagmentUC : UserControl
     {
+
         GameList gameLst;
         GameList DisplayLst;
         int gamesDisplayed;
         public GameManagmentUC(GameList games)
         {
             InitializeComponent();
+            games = OrderGamesByDateDec(games);
             ServiceBaseClient client = new ServiceBaseClient();
             DisplayLst = new GameList();
             gameLst = games;
@@ -102,5 +105,22 @@ namespace WpfClient
             LoadFilterGames(null, list, 10);
 
         }
+
+        private GameList OrderGamesByDateDec(GameList games)
+        {
+            List<Game> xlist = new List<Game>();
+            foreach (var x in games)
+            {
+                xlist.Add(x);
+            }
+            var orderedList = xlist.OrderBy(obj => obj.Date).ToList();
+            games = new GameList();
+            foreach (var x in orderedList)
+            {
+                games.Add(x);
+            }
+            return games;
+        }
+
     }
 }

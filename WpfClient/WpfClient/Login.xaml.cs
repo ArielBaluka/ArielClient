@@ -65,9 +65,18 @@ namespace WpfClient
             User loggedUser = serviceClient.Login(user);
             if(loggedUser != null)
             {
-                HomePage homePage = new HomePage(loggedUser);
-                this.Close();
-                homePage.ShowDialog();
+                if(loggedUser.ISADMIN)
+                {
+                    AdminPage adminPage = new AdminPage();
+                    this.Close();
+                    adminPage.ShowDialog();
+                }
+                else
+                {
+                    HomePage homePage = new HomePage(loggedUser);
+                    this.Close();
+                    homePage.ShowDialog();
+                } 
             }
             else
                 MessageBox.Show("Unable to login!", "Error");

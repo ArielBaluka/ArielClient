@@ -37,6 +37,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllGroupsByPoints">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllGroupsByPointsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllGroupsByPointsResult" nillable="true" type="q4:GroupList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllGuesses">
     <xs:complexType>
       <xs:sequence />
@@ -45,7 +57,7 @@
   <xs:element name="GetAllGuessesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllGuessesResult" nillable="true" type="q4:GuessList" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllGuessesResult" nillable="true" type="q5:GuessList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -57,14 +69,14 @@
   <xs:element name="GetAllPlayersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllPlayersResult" nillable="true" type="q5:PlayerList" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllPlayersResult" nillable="true" type="q6:PlayerList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q6:User" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q7:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -78,7 +90,7 @@
   <xs:element name="InsertGame">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="game" nillable="true" type="q7:Game" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="game" nillable="true" type="q8:Game" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -92,7 +104,7 @@
   <xs:element name="InsertGroup">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q8:Group" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q9:Group" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -106,7 +118,7 @@
   <xs:element name="InsertGuess">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="guess" nillable="true" type="q9:Guess" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="guess" nillable="true" type="q10:Guess" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -120,7 +132,7 @@
   <xs:element name="InsertPlayer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="player" nillable="true" type="q10:Player" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="player" nillable="true" type="q11:Player" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -134,7 +146,7 @@
   <xs:element name="UpdateUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q11:User" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q12:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -148,7 +160,7 @@
   <xs:element name="UpdateGame">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="game" nillable="true" type="q12:Game" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="game" nillable="true" type="q13:Game" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -162,7 +174,7 @@
   <xs:element name="UpdateGroup">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q13:Group" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q14:Group" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -176,7 +188,7 @@
   <xs:element name="UpdateGuess">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="guess" nillable="true" type="q14:Guess" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="guess" nillable="true" type="q15:Guess" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -200,7 +212,7 @@
   <xs:element name="UpdatePlayer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="player" nillable="true" type="q15:Player" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="player" nillable="true" type="q16:Player" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -214,7 +226,7 @@
   <xs:element name="DeleteUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q16:User" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q17:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -228,7 +240,7 @@
   <xs:element name="DeleteGame">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="game" nillable="true" type="q17:Game" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="game" nillable="true" type="q18:Game" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -242,7 +254,7 @@
   <xs:element name="DeleteGroup">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q18:Group" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q19:Group" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -256,7 +268,7 @@
   <xs:element name="DeleteGuess">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="guess" nillable="true" type="q19:Guess" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="guess" nillable="true" type="q20:Guess" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -270,7 +282,7 @@
   <xs:element name="DeletePlayer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="player" nillable="true" type="q20:Player" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="player" nillable="true" type="q21:Player" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -284,14 +296,14 @@
   <xs:element name="Login">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q21:User" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q22:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="LoginResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="LoginResult" nillable="true" type="q22:User" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="LoginResult" nillable="true" type="q23:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -303,13 +315,15 @@
   <xs:element name="GetGameResultsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetGameResultsResult" nillable="true" type="q23:GameList" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetGameResultsResult" nillable="true" type="q24:GameList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertNewGames">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="days" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertNewGamesResponse">
@@ -330,7 +344,7 @@
   <xs:element name="CalculateUserPoint">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q24:User" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q25:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -344,7 +358,7 @@
   <xs:element name="GetGroupData">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q25:Group" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q26:Group" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -352,6 +366,20 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetGroupDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoesPlayerExist">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="p" nillable="true" type="q27:Player" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoesPlayerExistResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DoesPlayerExistResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

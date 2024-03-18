@@ -202,4 +202,22 @@ namespace WpfClient
             return ValidationResult.ValidResult;
         }
     }
+
+    public class ValidNumber : ValidationRule
+    {
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        {
+            try
+            {
+                int Number = int.Parse(value.ToString());
+                if (Number < 1 || Number > 99)
+                    return new ValidationResult(false, "Number is not between 1 and 99"); 
+            }
+            catch (Exception ex)
+            {
+                return new ValidationResult(false, ex.Message);
+            }
+            return ValidationResult.ValidResult;
+        }
+    }
 }

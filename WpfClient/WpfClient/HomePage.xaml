@@ -128,7 +128,7 @@
                     </ListViewItem>
                     <ListViewItem Height="45" Padding="0" Selected="Settings_Selected">
                         <StackPanel Orientation="Horizontal" Margin="10 0" >
-                            <materialDesign:PackIcon Kind="Settings" Width="20" Height="20" Foreground="#FF0069C1"
+                            <materialDesign:PackIcon Kind="Settings" Width="20" Height="20" Foreground="Gray"
                                                      Margin="5" VerticalAlignment="Center" />
                             <TextBlock Text="Settings" Margin="10" />
                         </StackPanel>

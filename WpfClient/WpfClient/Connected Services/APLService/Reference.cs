@@ -603,6 +603,12 @@ namespace WpfClient.APLService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetAllGroups", ReplyAction="http://tempuri.org/IServiceBase/GetAllGroupsResponse")]
         System.Threading.Tasks.Task<WpfClient.APLService.GroupList> GetAllGroupsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetAllGroupsByPoints", ReplyAction="http://tempuri.org/IServiceBase/GetAllGroupsByPointsResponse")]
+        WpfClient.APLService.GroupList GetAllGroupsByPoints();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetAllGroupsByPoints", ReplyAction="http://tempuri.org/IServiceBase/GetAllGroupsByPointsResponse")]
+        System.Threading.Tasks.Task<WpfClient.APLService.GroupList> GetAllGroupsByPointsAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetAllGuesses", ReplyAction="http://tempuri.org/IServiceBase/GetAllGuessesResponse")]
         WpfClient.APLService.GuessList GetAllGuesses();
         
@@ -724,10 +730,10 @@ namespace WpfClient.APLService {
         System.Threading.Tasks.Task<WpfClient.APLService.GameList> GetGameResultsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/InsertNewGames", ReplyAction="http://tempuri.org/IServiceBase/InsertNewGamesResponse")]
-        void InsertNewGames();
+        void InsertNewGames(int days);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/InsertNewGames", ReplyAction="http://tempuri.org/IServiceBase/InsertNewGamesResponse")]
-        System.Threading.Tasks.Task InsertNewGamesAsync();
+        System.Threading.Tasks.Task InsertNewGamesAsync(int days);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/LoadResults", ReplyAction="http://tempuri.org/IServiceBase/LoadResultsResponse")]
         void LoadResults();
@@ -746,6 +752,12 @@ namespace WpfClient.APLService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetGroupData", ReplyAction="http://tempuri.org/IServiceBase/GetGroupDataResponse")]
         System.Threading.Tasks.Task<string> GetGroupDataAsync(WpfClient.APLService.Group group);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/DoesPlayerExist", ReplyAction="http://tempuri.org/IServiceBase/DoesPlayerExistResponse")]
+        bool DoesPlayerExist(WpfClient.APLService.Player p);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/DoesPlayerExist", ReplyAction="http://tempuri.org/IServiceBase/DoesPlayerExistResponse")]
+        System.Threading.Tasks.Task<bool> DoesPlayerExistAsync(WpfClient.APLService.Player p);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -797,6 +809,14 @@ namespace WpfClient.APLService {
         
         public System.Threading.Tasks.Task<WpfClient.APLService.GroupList> GetAllGroupsAsync() {
             return base.Channel.GetAllGroupsAsync();
+        }
+        
+        public WpfClient.APLService.GroupList GetAllGroupsByPoints() {
+            return base.Channel.GetAllGroupsByPoints();
+        }
+        
+        public System.Threading.Tasks.Task<WpfClient.APLService.GroupList> GetAllGroupsByPointsAsync() {
+            return base.Channel.GetAllGroupsByPointsAsync();
         }
         
         public WpfClient.APLService.GuessList GetAllGuesses() {
@@ -959,12 +979,12 @@ namespace WpfClient.APLService {
             return base.Channel.GetGameResultsAsync();
         }
         
-        public void InsertNewGames() {
-            base.Channel.InsertNewGames();
+        public void InsertNewGames(int days) {
+            base.Channel.InsertNewGames(days);
         }
         
-        public System.Threading.Tasks.Task InsertNewGamesAsync() {
-            return base.Channel.InsertNewGamesAsync();
+        public System.Threading.Tasks.Task InsertNewGamesAsync(int days) {
+            return base.Channel.InsertNewGamesAsync(days);
         }
         
         public void LoadResults() {
@@ -989,6 +1009,14 @@ namespace WpfClient.APLService {
         
         public System.Threading.Tasks.Task<string> GetGroupDataAsync(WpfClient.APLService.Group group) {
             return base.Channel.GetGroupDataAsync(group);
+        }
+        
+        public bool DoesPlayerExist(WpfClient.APLService.Player p) {
+            return base.Channel.DoesPlayerExist(p);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DoesPlayerExistAsync(WpfClient.APLService.Player p) {
+            return base.Channel.DoesPlayerExistAsync(p);
         }
     }
 }

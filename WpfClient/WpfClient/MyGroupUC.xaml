@@ -15,20 +15,21 @@
             <Grid Grid.Column="1">
                 <Grid.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#616161" Offset="0"/>
-                        <GradientStop Color="#263238" Offset="0.5"/>
-                        <GradientStop Color="White" Offset="0.5"/>
+                        <GradientStop Color="#616161" Offset="0.3"/>
+                        <GradientStop Color="#979797" Offset="0.8"/>
+                        <GradientStop Color="#525252" Offset="0"/>
                     </LinearGradientBrush>
                 </Grid.Background>
-                <TextBlock x:Name="NameTxt" Text="my group" HorizontalAlignment="Center" FontSize="20" FontWeight="UltraBlack"/>
+                <StackPanel>
+                    <TextBlock x:Name="NameTxt" Text="my group" HorizontalAlignment="Center" FontSize="40" FontWeight="UltraBlack"/>
+                    <TextBlock x:Name="dataTxT" Grid.Column="1" FontSize="16" TextWrapping="WrapWithOverflow"/>
+                </StackPanel>
             </Grid>
-            
+
             <Grid Grid.Row="0" x:Name="GroupRow">
                 <Image Height="140" x:Name="groupPic"
                        Source="\pictures\groups\1.png"/>
             </Grid>
-
-            <TextBlock x:Name="dataTxT" Grid.Column="1" FontSize="16"/>
 
         </Grid>
     </Border>

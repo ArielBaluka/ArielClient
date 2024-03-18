@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation.Peers;
+using System.Windows.Automation.Provider;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -24,9 +26,45 @@ namespace WpfClient
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void closeMenu()
         {
+            ButtonAutomationPeer peer = new ButtonAutomationPeer(ButtonClose);
+            IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
+            invokeProv.Invoke();
+            GridMain.Children.Clear();
+        }
+        private void ShowUsers_Selected(object sender, RoutedEventArgs e)
+        {
+            closeMenu();
+            AllUsersUC UsersUC = new AllUsersUC();
+            GridMain.Children.Add(UsersUC);
+            GridMain.Visibility = Visibility.Visible;
+        }
 
+        private void InsertGameResults_Selected(object sender, RoutedEventArgs e)
+        {
+            
+        }
+        private void InsertGuesses_Selected(object sender, RoutedEventArgs e)
+        {
+            closeMenu();
+            InsertGuessesUC UCGuess = new InsertGuessesUC();
+            GridMain.Children.Add(UCGuess);
+            GridMain.Visibility = Visibility.Visible;
+        }
+        private void Players_Selected(object sender, RoutedEventArgs e)
+        {
+            closeMenu();
+            AddPlayerUC Player = new AddPlayerUC();
+            Player.Height = 300;
+            Player.Width = 800;
+            GridMain.Children.Add(Player);
+            GridMain.Visibility = Visibility.Visible;
+            welcomeTxt.Text = "selected Players";
+        }
+        private void ButtonCloseApp_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
