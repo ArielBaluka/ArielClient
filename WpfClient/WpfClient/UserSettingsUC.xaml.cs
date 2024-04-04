@@ -7,12 +7,15 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfClient.APLService;
+using MessageBox = System.Windows.Forms.MessageBox;
+using UserControl = System.Windows.Controls.UserControl;
 
 namespace WpfClient
 {
@@ -23,11 +26,13 @@ namespace WpfClient
     {
         private User dataUser;
         private User saveUser;
+        private HomePage parent;
         APLService.ServiceBaseClient serviceClient;
 
-        public UserSettingsUC(User user)
+       public UserSettingsUC(User user, HomePage home)
         {
             InitializeComponent();
+            parent = home;
             this.dataUser = user;
             this.DataContext = dataUser;
             serviceClient = new APLService.ServiceBaseClient();
@@ -52,6 +57,16 @@ namespace WpfClient
             else
             {
                 MessageBox.Show("nothing has changed");
+            }
+        }
+
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult res = (MessageBoxResult)MessageBox.Show("Are you sure that you want to delete the account?", "Confirmation", MessageBoxButtons.YesNo);
+            if(res == MessageBoxResult.Yes)
+            {
+                serviceClient.DeleteUser(dataUser);
+                parent.GoToHomePage();
             }
         }
     }

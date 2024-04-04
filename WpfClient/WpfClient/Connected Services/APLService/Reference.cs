@@ -747,17 +747,23 @@ namespace WpfClient.APLService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/CalculateUserPoint", ReplyAction="http://tempuri.org/IServiceBase/CalculateUserPointResponse")]
         System.Threading.Tasks.Task<int> CalculateUserPointAsync(WpfClient.APLService.User user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetGroupData", ReplyAction="http://tempuri.org/IServiceBase/GetGroupDataResponse")]
-        string GetGroupData(WpfClient.APLService.Group group);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetGroupData", ReplyAction="http://tempuri.org/IServiceBase/GetGroupDataResponse")]
-        System.Threading.Tasks.Task<string> GetGroupDataAsync(WpfClient.APLService.Group group);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/DoesPlayerExist", ReplyAction="http://tempuri.org/IServiceBase/DoesPlayerExistResponse")]
         bool DoesPlayerExist(WpfClient.APLService.Player p);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/DoesPlayerExist", ReplyAction="http://tempuri.org/IServiceBase/DoesPlayerExistResponse")]
         System.Threading.Tasks.Task<bool> DoesPlayerExistAsync(WpfClient.APLService.Player p);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetPlayersByGroup", ReplyAction="http://tempuri.org/IServiceBase/GetPlayersByGroupResponse")]
+        WpfClient.APLService.PlayerList GetPlayersByGroup(WpfClient.APLService.Group group);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetPlayersByGroup", ReplyAction="http://tempuri.org/IServiceBase/GetPlayersByGroupResponse")]
+        System.Threading.Tasks.Task<WpfClient.APLService.PlayerList> GetPlayersByGroupAsync(WpfClient.APLService.Group group);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetPlayersByUser", ReplyAction="http://tempuri.org/IServiceBase/GetPlayersByUserResponse")]
+        WpfClient.APLService.PlayerList GetPlayersByUser(WpfClient.APLService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetPlayersByUser", ReplyAction="http://tempuri.org/IServiceBase/GetPlayersByUserResponse")]
+        System.Threading.Tasks.Task<WpfClient.APLService.PlayerList> GetPlayersByUserAsync(WpfClient.APLService.User user);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1003,20 +1009,28 @@ namespace WpfClient.APLService {
             return base.Channel.CalculateUserPointAsync(user);
         }
         
-        public string GetGroupData(WpfClient.APLService.Group group) {
-            return base.Channel.GetGroupData(group);
-        }
-        
-        public System.Threading.Tasks.Task<string> GetGroupDataAsync(WpfClient.APLService.Group group) {
-            return base.Channel.GetGroupDataAsync(group);
-        }
-        
         public bool DoesPlayerExist(WpfClient.APLService.Player p) {
             return base.Channel.DoesPlayerExist(p);
         }
         
         public System.Threading.Tasks.Task<bool> DoesPlayerExistAsync(WpfClient.APLService.Player p) {
             return base.Channel.DoesPlayerExistAsync(p);
+        }
+        
+        public WpfClient.APLService.PlayerList GetPlayersByGroup(WpfClient.APLService.Group group) {
+            return base.Channel.GetPlayersByGroup(group);
+        }
+        
+        public System.Threading.Tasks.Task<WpfClient.APLService.PlayerList> GetPlayersByGroupAsync(WpfClient.APLService.Group group) {
+            return base.Channel.GetPlayersByGroupAsync(group);
+        }
+        
+        public WpfClient.APLService.PlayerList GetPlayersByUser(WpfClient.APLService.User user) {
+            return base.Channel.GetPlayersByUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<WpfClient.APLService.PlayerList> GetPlayersByUserAsync(WpfClient.APLService.User user) {
+            return base.Channel.GetPlayersByUserAsync(user);
         }
     }
 }

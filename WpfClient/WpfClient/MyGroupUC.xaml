@@ -6,24 +6,27 @@
              xmlns:local="clr-namespace:WpfClient"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="600">
-    <Border BorderThickness="8" BorderBrush="Black">
+    <Border BorderThickness="5" BorderBrush="Black">
         <Grid x:Name="gropGrid">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.3*" x:Name="picColumn"/>
+                <ColumnDefinition Width="0.2*" x:Name="picColumn"/>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="0.2*" x:Name="playersCol"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="1">
                 <Grid.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#616161" Offset="0.3"/>
-                        <GradientStop Color="#979797" Offset="0.8"/>
-                        <GradientStop Color="#525252" Offset="0"/>
+                        <GradientStop Color="#808080" Offset="0.3"/>
+                        <GradientStop Color="#AEAEAE" Offset="0.8"/>
+                        <GradientStop Color="#AEAEAE" Offset="0"/>
                     </LinearGradientBrush>
                 </Grid.Background>
-                <StackPanel>
-                    <TextBlock x:Name="NameTxt" Text="my group" HorizontalAlignment="Center" FontSize="40" FontWeight="UltraBlack"/>
-                    <TextBlock x:Name="dataTxT" Grid.Column="1" FontSize="16" TextWrapping="WrapWithOverflow"/>
-                </StackPanel>
+                <ScrollViewer>
+                    <StackPanel>
+                        <TextBlock x:Name="NameTxt" Text="my group" HorizontalAlignment="Center" FontSize="40" FontWeight="UltraBlack" FontFamily="fonts/#Blacker Strokes - Personal Use"/>
+                        <TextBlock x:Name="dataTxT" Grid.Column="1" FontSize="14" TextWrapping="WrapWithOverflow" FontFamily="fonts/#Blacker Strokes - Personal Use"/>
+                    </StackPanel>
+                </ScrollViewer>
             </Grid>
 
             <Grid Grid.Row="0" x:Name="GroupRow">
@@ -31,6 +34,7 @@
                        Source="\pictures\groups\1.png"/>
             </Grid>
 
+            <Grid x:Name="playersgrid" Grid.Column="2"/>
         </Grid>
     </Border>
 </UserControl>

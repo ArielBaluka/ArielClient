@@ -26,6 +26,8 @@ namespace WpfClient
         {
             InitializeComponent();
             DecoratePage(user);
+            //playersgrid.Children.Add(new PlayersUC(user.FAVORITEGROUP));
+            playersgrid.Children.Add(new PlayersUC(user));
         }
 
         private void DecoratePage(User user)

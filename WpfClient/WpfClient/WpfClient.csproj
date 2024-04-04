@@ -99,6 +99,9 @@
     <Compile Include="GameResultUC.xaml.cs">
       <DependentUpon>GameResultUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GuessAnalysisUC.xaml.cs">
+      <DependentUpon>GuessAnalysisUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GuessersControlUC.xaml.cs">
       <DependentUpon>GuessersControlUC.xaml</DependentUpon>
     </Compile>
@@ -154,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GameResultUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GuessAnalysisUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

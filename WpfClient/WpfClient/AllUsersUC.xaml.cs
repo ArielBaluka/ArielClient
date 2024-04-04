@@ -29,6 +29,10 @@ namespace WpfClient
             InitializeComponent();
             serviceClient = new APLService.ServiceBaseClient();
             users = serviceClient.GetAllUsers();
+            //foreach(User user in users)
+            //{
+            //    user.BIRTHDATE = DateTime.Parse(user.BIRTHDATE.ToString("dd-MM-yyyy"));
+            //}
             Users.ItemsSource = users;
         }
     }

@@ -25,13 +25,22 @@ namespace WpfClient
         {
             InitializeComponent();
             numDec.Text = player.Number.ToString();
+            if(player.PlayerGroup != null)
+            {
+                DecorateShirt(player.PlayerGroup);
+                ChangerNumber(player.Number.ToString());
+                ChangeName(player.LastName);
+            }
         }
 
         public void ChangerNumber(string number)
         {
             numDec.Text = number;    
         }
-
+        public void ChangeName(string name)
+        {
+            playerName.Text = name;
+        }
 
         public void DecorateShirt(Group g)
         {

@@ -119,8 +119,15 @@ namespace WpfClient
         private void Settings_Selected(object sender, RoutedEventArgs e)
         {
             closeMenu();
-            GridMain.Children.Add(new UserSettingsUC(client));
+            GridMain.Children.Add(new UserSettingsUC(client, this));
             welcomeTxt.Text = "selected settings";
+        }
+
+        public void GoToHomePage()
+        {
+            MainWindow mainWindow = new MainWindow();
+            this.Close();
+            mainWindow.ShowDialog();
         }
 
         private void UpcomingGames_Selected(object sender, RoutedEventArgs e)

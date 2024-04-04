@@ -152,6 +152,9 @@
 
                 <TextBlock Margin="0,5" VerticalAlignment="Bottom" 
                            HorizontalAlignment="Center" FontWeight="Bold" Foreground="#2b1465"/>
+
+                <Button x:Name="DeleteBtn" Content="Delete my account" Foreground="White" Background="#2b1465"
+                        Height="35" Width="200" Click="DeleteBtn_Click"/>
             </StackPanel>
         </Border>
     </Grid>

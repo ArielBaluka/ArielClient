@@ -82,7 +82,7 @@ namespace WpfClient
         {
             SelDate.SelectedDate = DateTime.Now;
             genderComboBox.SelectedValue = GroupComboBox.SelectedValue = " ";
-            tbEM.Text = tbFN.Text = tbLN.Text = tbPN.Text = tbUN.Text = "";
+            tbEM.Text = tbFN.Text = tbLN.Text = tbUN.Text = "";
             tbxPassword.Password = "";
         }
 
@@ -91,6 +91,12 @@ namespace WpfClient
             if(!DataChanged())
             {
                 MessageBox.Show("Certain values arn't selected", "Error");
+                return;
+            }
+            if (Validation.GetHasError(tbxPassword) || Validation.GetHasError(tbUN) || Validation.GetHasError(tbFN) ||
+                Validation.GetHasError(tbLN) || Validation.GetHasError(tbEM) || Validation.GetHasError(SelDate))
+            {
+                MessageBox.Show("Certain values contain errors", "Error");
                 return;
             }
             User user = new User();
@@ -102,11 +108,15 @@ namespace WpfClient
             user.BIRTHDATE = DateTime.Parse(SelDate.SelectedDate.ToString());
             user.Gender = ((string)((ComboBoxItem)genderComboBox.SelectedItem).Content == "Male");// male - true 
             user.FAVORITEGROUP = (Group)GroupComboBox.SelectedItem;
-            if (!DoesUserExists(user) && serviceClient.InsertUser(user) == 1)
+            if (!DoesUserExists(user))
             {
-                HomePage homePage = new HomePage(user);
-                this.Close();
-                homePage.ShowDialog();
+                user.ID = serviceClient.InsertUser(user);
+                if(user.ID != 0)
+                {
+                    HomePage homePage = new HomePage(user);
+                    this.Close();
+                    homePage.ShowDialog();
+                }
             }
         }
 

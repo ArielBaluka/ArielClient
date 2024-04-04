@@ -78,5 +78,10 @@ namespace WpfClient
         {
             playerUC.ChangerNumber(tbNUM.Text);
         }
+
+        private void tbLN_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            playerUC.ChangeName(tbLN.Text);
+        }
     }
 }

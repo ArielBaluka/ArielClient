@@ -35,11 +35,23 @@ namespace WpfClient
             gameLst = games;
             gamesDisplayed = 10;
             for (int i = 0; i < gamesDisplayed; i++)
-                DisplayLst.Add(games[games.Count() -1 - i]);
+                DisplayLst.Add(games[games.Count() - 1 - i]);
 
-            foreach(Game game in DisplayLst)
-                GamesSP.Children.Add(new GameResultUC(game));
+            foreach (Game game in DisplayLst)
+            {
+                GameResultUC match = new GameResultUC(game);
+                match.MouseUp += Match_MouseUp;
+                GamesSP.Children.Add(match);
+            }
         }
+
+        private void Match_MouseUp(object sender, MouseButtonEventArgs e)
+        {///////////////////////////////////////////////////////////////////
+            GameResultUC match = sender as GameResultUC;
+             //match.gameID;
+            MessageBox.Show("clicked a game");
+        }
+
         private void loadMoreBtn_Click(object sender, RoutedEventArgs e)
         {
             if(GroupTxt.Text == "")
