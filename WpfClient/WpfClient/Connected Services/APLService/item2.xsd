@@ -397,4 +397,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetGuessesByGame">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="game" nillable="true" type="q31:Game" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGuessesByGameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetGuessesByGameResult" nillable="true" type="q32:GuessList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

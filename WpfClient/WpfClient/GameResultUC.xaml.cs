@@ -21,10 +21,10 @@ namespace WpfClient
     /// </summary>
     public partial class GameResultUC : UserControl
     {
-        public int gameID;
+        public Game GameRes;
         public GameResultUC(Game game)
         {
-            gameID = game.ID;
+            GameRes = game;
             InitializeComponent();
 
             string HName = game.HOMETEAM.GroupName;

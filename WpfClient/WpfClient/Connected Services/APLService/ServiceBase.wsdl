@@ -187,6 +187,12 @@
   <wsdl:message name="IServiceBase_GetPlayersByUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPlayersByUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceBase_GetGuessesByGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGuessesByGame" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBase_GetGuessesByGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGuessesByGameResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceBase">
     <wsdl:operation name="GetAllUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetAllUsers" message="tns:IServiceBase_GetAllUsers_InputMessage" />
@@ -307,6 +313,10 @@
     <wsdl:operation name="GetPlayersByUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetPlayersByUser" message="tns:IServiceBase_GetPlayersByUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/GetPlayersByUserResponse" message="tns:IServiceBase_GetPlayersByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGuessesByGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBase/GetGuessesByGame" message="tns:IServiceBase_GetGuessesByGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBase/GetGuessesByGameResponse" message="tns:IServiceBase_GetGuessesByGame_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceBase" type="tns:IServiceBase">
@@ -574,6 +584,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetPlayersByUser">
       <soap:operation soapAction="http://tempuri.org/IServiceBase/GetPlayersByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGuessesByGame">
+      <soap:operation soapAction="http://tempuri.org/IServiceBase/GetGuessesByGame" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

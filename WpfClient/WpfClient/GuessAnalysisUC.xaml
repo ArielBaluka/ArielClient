@@ -5,14 +5,35 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfClient"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="Cyan" Offset="0.15"/>
-                <GradientStop Color="AliceBlue" Offset="0.5"/>
-                <GradientStop Color="Pink" Offset="0.85"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-    </Grid>
+             d:DesignHeight="300" d:DesignWidth="450">
+    <Border BorderThickness="8" BorderBrush="Black" Margin="10">
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Cyan" Offset="0.15"/>
+                    <GradientStop Color="AliceBlue" Offset="0.5"/>
+                    <GradientStop Color="Pink" Offset="0.85"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <StackPanel>
+                <TextBlock Text="Guesses" HorizontalAlignment="Center" FontFamily="fonts/#Blacker Strokes - Personal Use" FontSize="30"/>
+                <TextBlock x:Name="Teams" Text="" HorizontalAlignment="Center" FontFamily="fonts/#Blacker Strokes - Personal Use" FontSize="14"/>
+            </StackPanel>
+
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel VerticalAlignment="Bottom">
+                    <Rectangle x:Name="HomeRec" Height="100" Width="80" Fill="blue"/>
+                    <TextBlock x:Name="HomeTxt" Text="Home" Background="Black" Foreground="White"/>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Bottom">
+                    <Rectangle x:Name="DrawRec" Height="100" Width="80" Fill="Gray"/>
+                    <TextBlock Text="Draw" Background="Black" Foreground="White"/>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Bottom">
+                    <Rectangle x:Name="AwayRec" Height="100" Width="80" Fill="Red"/>
+                    <TextBlock x:Name="AwayTxt" Text="Away" Background="Black" Foreground="White"/>
+                </StackPanel>
+            </WrapPanel>
+        </Grid>
+    </Border>
 </UserControl>

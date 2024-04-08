@@ -764,6 +764,12 @@ namespace WpfClient.APLService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetPlayersByUser", ReplyAction="http://tempuri.org/IServiceBase/GetPlayersByUserResponse")]
         System.Threading.Tasks.Task<WpfClient.APLService.PlayerList> GetPlayersByUserAsync(WpfClient.APLService.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetGuessesByGame", ReplyAction="http://tempuri.org/IServiceBase/GetGuessesByGameResponse")]
+        WpfClient.APLService.GuessList GetGuessesByGame(WpfClient.APLService.Game game);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBase/GetGuessesByGame", ReplyAction="http://tempuri.org/IServiceBase/GetGuessesByGameResponse")]
+        System.Threading.Tasks.Task<WpfClient.APLService.GuessList> GetGuessesByGameAsync(WpfClient.APLService.Game game);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1031,6 +1037,14 @@ namespace WpfClient.APLService {
         
         public System.Threading.Tasks.Task<WpfClient.APLService.PlayerList> GetPlayersByUserAsync(WpfClient.APLService.User user) {
             return base.Channel.GetPlayersByUserAsync(user);
+        }
+        
+        public WpfClient.APLService.GuessList GetGuessesByGame(WpfClient.APLService.Game game) {
+            return base.Channel.GetGuessesByGame(game);
+        }
+        
+        public System.Threading.Tasks.Task<WpfClient.APLService.GuessList> GetGuessesByGameAsync(WpfClient.APLService.Game game) {
+            return base.Channel.GetGuessesByGameAsync(game);
         }
     }
 }

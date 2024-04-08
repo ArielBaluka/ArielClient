@@ -48,8 +48,12 @@ namespace WpfClient
         private void Match_MouseUp(object sender, MouseButtonEventArgs e)
         {///////////////////////////////////////////////////////////////////
             GameResultUC match = sender as GameResultUC;
-             //match.gameID;
             MessageBox.Show("clicked a game");
+            GuessAnalysisUC g = new GuessAnalysisUC(match.GameRes);
+            g.Height = 300;
+            //g.Width = 450;
+            sp.Children.Clear();
+            sp.Children.Add(g);
         }
 
         private void loadMoreBtn_Click(object sender, RoutedEventArgs e)
@@ -72,8 +76,11 @@ namespace WpfClient
             {
                 for (int i = lst.Count() - gamesDisplayed - 1; i > lst.Count() - gamesDisplayed - Math.Min(gamesToShow, 10) - 1; i--)
                 {
-                    GamesSP.Children.Add(new GameResultUC(lst[i]));
-                    addedCount++;
+                    GameResultUC match = new GameResultUC(lst[i]);
+                    match.MouseUp += Match_MouseUp;
+                    GamesSP.Children.Add(match);
+                    //GamesSP.Children.Add(new GameResultUC(lst[i]));
+                    //addedCount++;
                 }
             }
             gamesDisplayed += addedCount;
@@ -86,7 +93,12 @@ namespace WpfClient
             {
                 // Add MiniExerciseUC controls to the collection
                 foreach (var game in list)
-                    GamesSP.Children.Add(new GameResultUC(game));
+                {
+                    //GamesSP.Children.Add(new GameResultUC(game));
+                    GameResultUC match = new GameResultUC(game);
+                    match.MouseUp += Match_MouseUp;
+                    GamesSP.Children.Add(match);
+                }
             }
             if (xlist != null)
             {
@@ -101,7 +113,10 @@ namespace WpfClient
                     Game game = xlist[i];
                     if (count < lim)
                     {
-                        GamesSP.Children.Add(new GameResultUC(game));
+                        //GamesSP.Children.Add(new GameResultUC(game));
+                        GameResultUC match = new GameResultUC(game);
+                        match.MouseUp += Match_MouseUp;
+                        GamesSP.Children.Add(match);
                         count++;
                     }
                 }

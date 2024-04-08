@@ -39,6 +39,7 @@
         <StackPanel>
             <TextBlock Text="search group" Margin="0,16,0,0" HorizontalAlignment="Center" FontFamily="fonts/#Blacker Strokes - Personal Use"/>
             <TextBox x:Name="GroupTxt" TextChanged="GroupTxt_TextChanged" Margin="8" Height="36" FontSize="16" Background="White" BorderBrush="Gray" BorderThickness="2"/>
+            <StackPanel x:Name="sp"/>
         </StackPanel>
     </Grid>
 </UserControl>
