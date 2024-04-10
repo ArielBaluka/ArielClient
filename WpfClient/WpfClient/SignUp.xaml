@@ -173,7 +173,7 @@
                         
                         <StackPanel HorizontalAlignment="Left" Grid.Row="6" Grid.Column="1" Margin="0,10">
                             <TextBlock Text="Favorite Group: " Foreground="#2b1465"/>
-                            <ComboBox x:Name="GroupComboBox" Text="gender" Width="200" HorizontalAlignment="Left" BorderBrush="Gray">
+                            <ComboBox x:Name="GroupComboBox" Width="200" HorizontalAlignment="Left" BorderBrush="Gray">
                                 <ComboBox.Resources>
                                     <SolidColorBrush x:Key="MaterialDesignPaper" Color="White"/>
                                 </ComboBox.Resources>
