@@ -50,8 +50,7 @@ namespace WpfClient
             GameResultUC match = sender as GameResultUC;
             MessageBox.Show("clicked a game");
             GuessAnalysisUC g = new GuessAnalysisUC(match.GameRes);
-            g.Height = 300;
-            //g.Width = 450;
+            g.Height = 400;
             sp.Children.Clear();
             sp.Children.Add(g);
         }

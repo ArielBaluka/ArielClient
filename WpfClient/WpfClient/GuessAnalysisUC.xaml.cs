@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LiveCharts.Wpf;
+using LiveCharts;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -25,12 +27,11 @@ namespace WpfClient
     {
         public GuessAnalysisUC(Game game)
         {
-            InitializeComponent();
+            InitializeComponent();            
             ServiceBaseClient service = new ServiceBaseClient();
             GuessList guesses = service.GetGuessesByGame(game);
             int total = guesses.Count;
             int drawCount = 0, HomeCount = 0, AwayCount = 0;
-            int drawHeight = 0, HomeHeight = 0, AwayHeight = 0;
 
             foreach (Guess gue in guesses)
             {
@@ -41,28 +42,31 @@ namespace WpfClient
                 if (gue.TEAMGUESSED.ID == game.AWAYTEAM.ID)
                     AwayCount++;
             }
-
-            if (drawCount > 0)
-                drawHeight = (int)((drawCount*1.0 / total) * 100);
-            else
-                drawHeight = 1;
-            if (HomeCount > 0)
-                HomeHeight = (int)((HomeCount*1.0 / total) * 100);
-            else
-                HomeHeight = 1;
-            if (AwayCount > 0)
-                AwayHeight = (int)((AwayCount*1.0 / total) * 100);
-            else
-                AwayHeight = 1;
-
-            HomeRec.Height = HomeHeight;
-            AwayRec.Height = AwayHeight;
-            DrawRec.Height = drawHeight;
-
+            Home.Values = new ChartValues<int> { HomeCount };
+            Away.Values = new ChartValues<int> { AwayCount };
+            Draw.Values = new ChartValues<int> { drawCount };
+            Home.Title = game.HOMETEAM.GroupShortcut;
+            Away.Title = game.AWAYTEAM.GroupShortcut;
             Teams.Text = game.HOMETEAM.GroupName + " VS " + game.AWAYTEAM.GroupName;
+            PointLabel = chartPoint =>
+                string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
 
-            HomeTxt.Text = game.HOMETEAM.GroupShortcut;
-            AwayTxt.Text = game.AWAYTEAM.GroupShortcut;
+            DataContext = this;
+
+        }
+
+        public Func<ChartPoint, string> PointLabel { get; set; }
+
+        private void Chart_OnDataClick(object sender, ChartPoint chartpoint)
+        {
+            var chart = (LiveCharts.Wpf.PieChart)chartpoint.ChartView;
+
+            //clear selected slice.
+            foreach (PieSeries series in chart.Series)
+                series.PushOut = 0;
+
+            var selectedSeries = (PieSeries)chartpoint.SeriesView;
+            selectedSeries.PushOut = 8;
         }
     }
 }

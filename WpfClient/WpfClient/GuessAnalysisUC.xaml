@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfClient"
+             xmlns:liveCharts="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="450">
     <Border BorderThickness="8" BorderBrush="Black" Margin="10">
@@ -20,20 +21,16 @@
                 <TextBlock x:Name="Teams" Text="" HorizontalAlignment="Center" FontFamily="fonts/#Blacker Strokes - Personal Use" FontSize="14"/>
             </StackPanel>
 
-            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <StackPanel VerticalAlignment="Bottom">
-                    <Rectangle x:Name="HomeRec" Height="100" Width="80" Fill="blue"/>
-                    <TextBlock x:Name="HomeTxt" Text="Home" Background="Black" Foreground="White"/>
-                </StackPanel>
-                <StackPanel VerticalAlignment="Bottom">
-                    <Rectangle x:Name="DrawRec" Height="100" Width="80" Fill="Gray"/>
-                    <TextBlock Text="Draw" Background="Black" Foreground="White"/>
-                </StackPanel>
-                <StackPanel VerticalAlignment="Bottom">
-                    <Rectangle x:Name="AwayRec" Height="100" Width="80" Fill="Red"/>
-                    <TextBlock x:Name="AwayTxt" Text="Away" Background="Black" Foreground="White"/>
-                </StackPanel>
-            </WrapPanel>
+            <liveCharts:PieChart LegendLocation="Bottom" DataClick="Chart_OnDataClick" Hoverable="False" DataTooltip="{x:Null}" Height="200">
+                <liveCharts:PieChart.Series>
+                    <liveCharts:PieSeries x:Name="Home" Title="Home" Values="0" DataLabels="True"
+                               LabelPoint="{Binding PointLabel}"/>
+                    <liveCharts:PieSeries x:Name="Draw" Title="Draw" Values="0" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                    <liveCharts:PieSeries x:Name="Away" Title="Away" Values="0" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                </liveCharts:PieChart.Series>
+            </liveCharts:PieChart>
         </Grid>
     </Border>
 </UserControl>
