@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -29,11 +30,24 @@ namespace WpfClient
             InitializeComponent();
             serviceClient = new APLService.ServiceBaseClient();
             users = serviceClient.GetAllUsers();
-            //foreach(User user in users)
-            //{
-            //    user.BIRTHDATE = DateTime.Parse(user.BIRTHDATE.ToString("dd-MM-yyyy"));
-            //}
             Users.ItemsSource = users;
+        }
+
+        private void Users_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(Users.SelectedIndex == -1) return;
+            User user = Users.SelectedItem as User;
+
+            AdminUserStatus adminUserStatus = new AdminUserStatus(user);
+            refreshWithDelay(adminUserStatus);
+
+        }
+        public async void refreshWithDelay(AdminUserStatus adminUserStatus)
+        {
+            EditSP.Children.Clear();
+            await Task.Delay(300);
+            EditSP.Children.Add(adminUserStatus);
+
         }
     }
 }

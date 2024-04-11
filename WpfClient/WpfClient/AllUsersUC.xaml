@@ -7,7 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1000">
     <Grid Background="White">
-        <ListView x:Name="Users" Width="1000" Grid.Row="1" Grid.Column="0" BorderBrush="Black" VerticalAlignment="Top" HorizontalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="Users" Width="auto" Grid.Row="0" Grid.Column="0" BorderBrush="Black" VerticalAlignment="Top" HorizontalAlignment="Center" SelectionChanged="Users_SelectionChanged">
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <Setter Property="BorderBrush" Value="LightGray" />
@@ -16,15 +20,15 @@
             </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="User" Width="142" DisplayMemberBinding="{Binding ID}"/>
-                    <GridViewColumn Header="UserName" Width="142" DisplayMemberBinding="{Binding UserName}" />
-                    <GridViewColumn Header="Password" Width="142" DisplayMemberBinding="{Binding PassWord}"  />
-                    <GridViewColumn Header="firstName" Width="142" DisplayMemberBinding="{Binding FirstName}"/>
-                    <GridViewColumn Header="lastName" Width="142" DisplayMemberBinding="{Binding LastName}"/>
-                    <GridViewColumn Header="email" Width="142" DisplayMemberBinding="{Binding EMAIL}"/>
-                    <GridViewColumn Header="birthday" Width="142" DisplayMemberBinding="{Binding BIRTHDATE}"/>
+                    <GridViewColumn Header="User" Width="auto" DisplayMemberBinding="{Binding ID}"/>
+                    <GridViewColumn Header="UserName" Width="auto" DisplayMemberBinding="{Binding UserName}" />
+                    <GridViewColumn Header="firstName" Width="auto" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="lastName" Width="auto" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="email" Width="auto" DisplayMemberBinding="{Binding EMAIL}"/>
+                    <GridViewColumn Header="birthday" Width="auto" DisplayMemberBinding="{Binding BIRTHDATE}"/>
                 </GridView>
             </ListView.View>      
         </ListView>
+        <StackPanel x:Name="EditSP" Grid.Column="1"/>
     </Grid>
 </UserControl>
