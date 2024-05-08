@@ -3,32 +3,62 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WpfClient"
+             xmlns:local="clr-namespace:WpfClient" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1000">
-    <Grid Background="White">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="2*"/>
-        </Grid.ColumnDefinitions>
-        <ListView x:Name="Users" Width="auto" Grid.Row="0" Grid.Column="0" BorderBrush="Black" VerticalAlignment="Top" HorizontalAlignment="Center" SelectionChanged="Users_SelectionChanged">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="{x:Type ListViewItem}">
-                    <Setter Property="BorderBrush" Value="LightGray" />
-                    <Setter Property="BorderThickness" Value="0,0,0,2" />
-                </Style>
-            </ListView.ItemContainerStyle>
+
+    <UserControl.Resources>
+        <local:GenderConverter x:Key="GenderConverter"/>
+    </UserControl.Resources>
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Users" Grid.Row="0" FontSize="35" Padding="5" FontWeight="SemiBold" Margin="20 " Foreground="#121518" HorizontalAlignment="Left" FontFamily="fonts/#Blacker Strokes - Personal Use"/>
+        <ListView Margin="10" ScrollViewer.CanContentScroll="True" x:Name="Users" Grid.Row="1"
+                  SelectionMode="Single" BorderBrush="Black" FontSize="17" Foreground="Black" FontFamily="fonts/#Blacker Strokes - Personal Use">
             <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="User" Width="auto" DisplayMemberBinding="{Binding ID}"/>
-                    <GridViewColumn Header="UserName" Width="auto" DisplayMemberBinding="{Binding UserName}" />
-                    <GridViewColumn Header="firstName" Width="auto" DisplayMemberBinding="{Binding FirstName}"/>
-                    <GridViewColumn Header="lastName" Width="auto" DisplayMemberBinding="{Binding LastName}"/>
-                    <GridViewColumn Header="email" Width="auto" DisplayMemberBinding="{Binding EMAIL}"/>
-                    <GridViewColumn Header="birthday" Width="auto" DisplayMemberBinding="{Binding BIRTHDATE}"/>
+                <GridView ScrollViewer.CanContentScroll="True">
+                    <GridViewColumn  Header="Name"
+                                     Width="250">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black" Margin="10 0 0 1">
+                                    <Run Text="{Binding FirstName}" />
+                                    <Run Text="{Binding LastName}" /></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Email" Width="Auto" DisplayMemberBinding="{Binding EMAIL}" />
+                    <GridViewColumn Header="Gender" Width="180">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Gender,Converter={StaticResource GenderConverter}}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Birthday" Width="Auto" DisplayMemberBinding="{Binding BIRTHDATE, StringFormat=dd/MM/yyyy}" />
+                    <GridViewColumn Header="Edit" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button Margin="16 0 0 0"
+                                            Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                            Click="Delete_Click"
+                                            Background="Gray"
+                                            Foreground="White"
+                                            Tag="{Binding}">
+                                        <materialDesign:PackIcon Kind="Trash"
+                                                                 Width="20"
+                                                                 Height="20" />
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>      
         </ListView>
-        <StackPanel x:Name="EditSP" Grid.Column="1"/>
     </Grid>
 </UserControl>

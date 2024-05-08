@@ -108,6 +108,7 @@
     <Compile Include="GameResultUC.xaml.cs">
       <DependentUpon>GameResultUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GenderConverter.cs" />
     <Compile Include="GuessAnalysisUC.xaml.cs">
       <DependentUpon>GuessAnalysisUC.xaml</DependentUpon>
     </Compile>

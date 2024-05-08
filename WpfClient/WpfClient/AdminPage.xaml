@@ -95,13 +95,6 @@
                             <TextBlock Text="Users" Margin="10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="RecentGames" Height="45" Padding="0" Selected="InsertGameResults_Selected">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="ScoreboardOutline" Width="20" Height="20" Foreground="#FFF08033"
-                                                     Margin="5" VerticalAlignment="Center" />
-                            <TextBlock Text="Insert Game Results" Margin="10"/>
-                        </StackPanel>
-                    </ListViewItem>
                     <ListViewItem Height="45" Padding="0" Selected="InsertGuesses_Selected">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
                             <materialDesign:PackIcon Kind="QuestionMark" Width="20" Height="20" Foreground="Green" Margin="5" VerticalAlignment="Center" />

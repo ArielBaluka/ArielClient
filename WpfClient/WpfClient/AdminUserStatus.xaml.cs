@@ -23,17 +23,21 @@ namespace WpfClient
     {
         APLService.ServiceBaseClient serviceClient;
         User clickedUser;
-        public AdminUserStatus(User user)
+        private AdminPage page;
+        public AdminUserStatus(User user, AdminPage page)
         {
             InitializeComponent();
             serviceClient = new APLService.ServiceBaseClient();
             userItem.Header = user.UserName;
             clickedUser = user;
+            this.page = page;
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             serviceClient.DeleteUser(clickedUser);
+            page.ShowUsers_Selected();
+
         }
     }
 }

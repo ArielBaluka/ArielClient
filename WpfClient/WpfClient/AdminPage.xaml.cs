@@ -33,18 +33,21 @@ namespace WpfClient
             invokeProv.Invoke();
             GridMain.Children.Clear();
         }
-        private void ShowUsers_Selected(object sender, RoutedEventArgs e)
+        public void ShowUsers_Selected(object sender, RoutedEventArgs e)
         {
             closeMenu();
-            AllUsersUC UsersUC = new AllUsersUC();
+            AllUsersUC UsersUC = new AllUsersUC(this);
+            GridMain.Children.Add(UsersUC);
+            GridMain.Visibility = Visibility.Visible;
+        }
+        public void ShowUsers_Selected()
+        {
+            closeMenu();
+            AllUsersUC UsersUC = new AllUsersUC(this);
             GridMain.Children.Add(UsersUC);
             GridMain.Visibility = Visibility.Visible;
         }
 
-        private void InsertGameResults_Selected(object sender, RoutedEventArgs e)
-        {
-            
-        }
         private void InsertGuesses_Selected(object sender, RoutedEventArgs e)
         {
             closeMenu();

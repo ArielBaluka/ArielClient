@@ -24,30 +24,31 @@ namespace WpfClient
     {
         APLService.ServiceBaseClient serviceClient;
         private UserList users = new UserList();
+        private AdminPage page;
 
-        public AllUsersUC()
+        public AllUsersUC(AdminPage page)
         {
             InitializeComponent();
             serviceClient = new APLService.ServiceBaseClient();
             users = serviceClient.GetAllUsers();
             Users.ItemsSource = users;
+            this.page = page;
         }
 
-        private void Users_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            if(Users.SelectedIndex == -1) return;
-            User user = Users.SelectedItem as User;
 
-            AdminUserStatus adminUserStatus = new AdminUserStatus(user);
-            refreshWithDelay(adminUserStatus);
-
-        }
-        public async void refreshWithDelay(AdminUserStatus adminUserStatus)
-        {
-            EditSP.Children.Clear();
-            await Task.Delay(300);
-            EditSP.Children.Add(adminUserStatus);
-
+            User user = (sender as Button).Tag as User;
+            if (user != null)
+            {
+                if (MessageBox.Show($"Delete {user.FirstName} {user.LastName}?", "😱", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    serviceClient.DeleteUser(user);
+                    users = serviceClient.GetAllUsers();
+                    Users.ItemsSource = users;
+                }
+            }
         }
     }
 }
+

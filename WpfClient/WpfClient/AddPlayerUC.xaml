@@ -106,6 +106,8 @@
                 </ComboBox.Resources>
             </ComboBox>
             <CheckBox x:Name="yesNoCheckBox" Content="is captain" IsChecked="False" Checked="CheckBox_Checked" Background="Black"/>
+
+
         </StackPanel>
 
         <Button x:Name="AddPlayerBtn" Content="Add Player" Foreground="White" Background="#2b1465" 

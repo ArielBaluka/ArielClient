@@ -130,6 +130,9 @@
                             <ComboBox x:Name="genderComboBox" Text="gender" Width="100" HorizontalAlignment="Left" BorderBrush="Gray">
                                 <ComboBoxItem Content="Male"/>
                                 <ComboBoxItem Content="Female"/>
+                                <ComboBox.Resources>
+                                    <SolidColorBrush x:Key="MaterialDesignPaper" Color="White"/>
+                                </ComboBox.Resources>
                             </ComboBox>
                         </StackPanel>
 
