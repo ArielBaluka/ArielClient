@@ -48,8 +48,30 @@ namespace WpfClient
 
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (dataUser.UserName != saveUser.UserName && dataUser.PassWord != saveUser.PassWord
-                && dataUser.EMAIL != dataUser.EMAIL)
+            bool changedName = false;
+            bool changedMail = false;
+            bool changedPass = false;
+            if(dataUser.UserName != saveUser.UserName)
+            {
+                if(DoesUserNameExists(dataUser))
+                {
+                    return;
+                }
+                changedName = true;
+            }
+            if(dataUser.EMAIL != saveUser.EMAIL)
+            {
+                if (DoesUserMailExists(dataUser))
+                {
+                    return;
+                }
+                changedMail = true;
+            }
+            if (dataUser.PassWord != saveUser.PassWord)
+            {
+                changedPass = true;
+            }
+            if (changedPass || changedName || changedMail)
             {
                 serviceClient.UpdateUser(dataUser);
                 MessageBox.Show("user updated!");
@@ -58,6 +80,37 @@ namespace WpfClient
             {
                 MessageBox.Show("nothing has changed");
             }
+        }
+
+        //function checks if there is a user that already has the email/username provided
+        public bool DoesUserMailExists(User us)
+        {
+            UserList users = serviceClient.GetAllUsers();
+
+            foreach (User user in users)
+            {
+                if (user.EMAIL.Equals(us.EMAIL))
+                {
+                    MessageBox.Show("This email is taken!", "Error");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool DoesUserNameExists(User us)
+        {
+            UserList users = serviceClient.GetAllUsers();
+
+            foreach (User user in users)
+            {
+                if (user.UserName.Equals(us.UserName))
+                {
+                    MessageBox.Show("This username is taken!", "Error");
+                    return true;
+                }
+            }
+            return false;
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)

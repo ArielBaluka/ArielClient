@@ -27,39 +27,48 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <Grid>
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="Purple" Offset="0"/>
-                <GradientStop Color="MediumPurple" Offset="0.8"/>
-                <GradientStop Color="Cyan" Offset="0.5"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+    <Border BorderBrush="Black" BorderThickness="8">
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#5b84fb" Offset="0.7"/>
+                    <GradientStop Color="#616cef" Offset="0.7"/>
+                    <GradientStop Color="#3c94ec" Offset="0.8"/>
+                    <GradientStop Color="#4492f0" Offset="0.8"/>
+                    <GradientStop Color="#7464fc" Offset="0.5"/>
+                    <GradientStop Color="#7c5efc" Offset="0.5"/>
+                    <GradientStop Color="#6d70fc" Offset="0.4"/>
+                    <GradientStop Color="#894cfc" Offset="0.4"/>
+                    <GradientStop Color="#489dfb" Offset="0.2"/>
+                    <GradientStop Color="#5b84fb" Offset="0.2"/>
+                </LinearGradientBrush>
 
-        <StackPanel Margin="10">
-            <TextBlock Text="Add New Games" FontFamily="fonts/#Blacker Strokes - Personal Use" HorizontalAlignment="Center" FontSize="18"/>
-            <TextBlock FontFamily="fonts/#Blacker Strokes - Personal Use" HorizontalAlignment="Center" FontSize="12" TextWrapping="WrapWithOverflow" Margin="0,10,0,0"
+            </Grid.Background>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Add New Games" FontFamily="fonts/#Blacker Strokes - Personal Use" HorizontalAlignment="Center" FontSize="18" Margin="10"/>
+                <TextBlock FontFamily="fonts/#Blacker Strokes - Personal Use" HorizontalAlignment="Center" FontSize="12" TextWrapping="WrapWithOverflow" Margin="0,10,0,10"
                        Text="as an admin you are able to insert new games for users to guess from, by default it is set to the next 14 days but you can insert games of up to a month from today"/>
-        </StackPanel>
-        <DockPanel VerticalAlignment="Center">
-            <TextBlock Text="Days to display (From today) " FontFamily="fonts/#Blacker Strokes - Personal Use" FontSize="18"/>
-            <ComboBox x:Name="DaysCMB" Width="300" BorderBrush="Gray">
-                <ComboBox.Resources>
-                    <SolidColorBrush x:Key="MaterialDesignPaper" Color="White"/>
-                </ComboBox.Resources>
-                <ComboBoxItem IsSelected="True">14</ComboBoxItem>
-                <ComboBoxItem>16</ComboBoxItem>
-                <ComboBoxItem>18</ComboBoxItem>
-                <ComboBoxItem>20</ComboBoxItem>
-                <ComboBoxItem>22</ComboBoxItem>
-                <ComboBoxItem>24</ComboBoxItem>
-                <ComboBoxItem>26</ComboBoxItem>
-                <ComboBoxItem>28</ComboBoxItem>
-                <ComboBoxItem>30</ComboBoxItem>
-            </ComboBox>
-        </DockPanel>
-        
-        <Button x:Name="InsertBtn" Content="Add games" Foreground="White" Background="Gray" 
-                        Height="50" Width="200" VerticalAlignment="Bottom" Click="Insert_Click"/>
-    </Grid>
+
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <TextBlock Text="Days to display (From today) " FontFamily="fonts/#Blacker Strokes - Personal Use" FontSize="18"/>
+                    <ComboBox x:Name="DaysCMB" Width="300" BorderBrush="Gray">
+                        <ComboBox.Resources>
+                            <SolidColorBrush x:Key="MaterialDesignPaper" Color="White"/>
+                        </ComboBox.Resources>
+                        <ComboBoxItem IsSelected="True">14</ComboBoxItem>
+                        <ComboBoxItem>16</ComboBoxItem>
+                        <ComboBoxItem>18</ComboBoxItem>
+                        <ComboBoxItem>20</ComboBoxItem>
+                        <ComboBoxItem>22</ComboBoxItem>
+                        <ComboBoxItem>24</ComboBoxItem>
+                        <ComboBoxItem>26</ComboBoxItem>
+                        <ComboBoxItem>28</ComboBoxItem>
+                        <ComboBoxItem>30</ComboBoxItem>
+                    </ComboBox>
+                </DockPanel>
+                <Button x:Name="InsertBtn" Content="Add games" Foreground="White" Background="#1b284b" Height="50" Width="200" VerticalAlignment="Bottom" Click="Insert_Click"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+    
 </UserControl>

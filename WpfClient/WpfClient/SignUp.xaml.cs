@@ -88,7 +88,7 @@ namespace WpfClient
 
         private void SignUpBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(!DataChanged())
+            if (!DataChanged())
             {
                 MessageBox.Show("Certain values arn't selected", "Error");
                 return;
@@ -99,15 +99,7 @@ namespace WpfClient
                 MessageBox.Show("Certain values contain errors", "Error");
                 return;
             }
-            User user = new User();
-            user.PassWord = tbxPassword.Password;
-            user.UserName = tbUN.Text;
-            user.FirstName = tbFN.Text;
-            user.LastName = tbLN.Text;
-            user.EMAIL = tbEM.Text;
-            user.BIRTHDATE = DateTime.Parse(SelDate.SelectedDate.ToString());
-            user.Gender = ((string)((ComboBoxItem)genderComboBox.SelectedItem).Content == "Male");// male - true 
-            user.FAVORITEGROUP = (Group)GroupComboBox.SelectedItem;
+            User user = AdjustUser();
             if (!DoesUserExists(user))
             {
                 user.ID = serviceClient.InsertUser(user);
@@ -120,6 +112,21 @@ namespace WpfClient
             }
         }
 
+        private User AdjustUser()
+        {
+            User user = new User()
+            {
+                PassWord = tbxPassword.Password,
+                UserName = tbUN.Text,
+                FirstName = tbFN.Text,
+                LastName = tbLN.Text,
+                EMAIL = tbEM.Text,
+                BIRTHDATE = DateTime.Parse(SelDate.SelectedDate.ToString()),
+                Gender = ((string)((ComboBoxItem)genderComboBox.SelectedItem).Content == "Male"),
+                FAVORITEGROUP = (Group)GroupComboBox.SelectedItem
+            };
+            return user;
+        }
         //function checks if there is a user that already has the email/username provided
         public bool DoesUserExists(User us)
         {

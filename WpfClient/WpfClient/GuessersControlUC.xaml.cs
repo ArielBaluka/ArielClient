@@ -35,8 +35,7 @@ namespace WpfClient
                 int points = serviceClient.CalculateUserPoint(u);
                 userScore.Add(u, points);
             }
-
-            Dictionary<User, int> SortedUserScore = SortDictionaryByValue(userScore);
+            Dictionary<User, int> SortedUserScore = SortDictionaryByValue(userScore);//משתמש ונקודות
             int count = 0;
             foreach(var uscore in SortedUserScore)
             {

@@ -37,7 +37,6 @@ namespace WpfClient
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-
             User user = (sender as Button).Tag as User;
             if (user != null)
             {

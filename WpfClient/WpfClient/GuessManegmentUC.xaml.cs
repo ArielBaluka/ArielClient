@@ -25,7 +25,6 @@ namespace WpfClient
         public GuessManegmentUC(GameList games, User user)
         {
             InitializeComponent();
-            ServiceBaseClient client = new ServiceBaseClient();
             gameLst = games;
             foreach (Game game in games)
                 GamesSP.Children.Add(new UpcomingGameUC(game, user));

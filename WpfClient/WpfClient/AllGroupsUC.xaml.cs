@@ -29,10 +29,6 @@ namespace WpfClient
             serviceClient = new APLService.ServiceBaseClient();
             groups = serviceClient.GetAllGroupsByPoints();
             Groups.ItemsSource = groups;
-
-            //string path = "pack://application:,,,/WpfClient;component/pictures/groups/" + (user.FAVORITEGROUP.ID - 1).ToString() + ".png";
-
-            
         }
     }
 }

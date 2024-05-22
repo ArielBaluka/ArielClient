@@ -37,7 +37,6 @@ namespace WpfClient
             welcomeTxt.Text += " " + user.UserName + "!";
             serviceClient = new APLService.ServiceBaseClient();
             games = serviceClient.GetAllGames();
-
             gameResults = GetGameResults();
             futureGames = GetGuessGames();
         }

@@ -80,7 +80,6 @@ namespace WpfClient
             }
             else
                 MessageBox.Show("Unable to login!", "Error");
-
         }
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)

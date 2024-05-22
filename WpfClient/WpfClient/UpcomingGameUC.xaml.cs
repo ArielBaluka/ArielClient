@@ -28,7 +28,6 @@ namespace WpfClient
         public UpcomingGameUC(Game game, User user)
         {
             InitializeComponent();
-
             string HName = game.HOMETEAM.GroupName;
             string AName = game.AWAYTEAM.GroupName;
             int Hscore = game.HOMESCORE;
@@ -49,7 +48,6 @@ namespace WpfClient
         {
             Button clickedButton = (Button)sender;
             string buttonContent = clickedButton.Content.ToString();
-            
             Group group =buttonContent.Equals(match.AWAYTEAM.GroupName)? match.AWAYTEAM: match.HOMETEAM;
             Guess guess = new Guess();
             guess.ISCORRECT = false;
@@ -60,8 +58,6 @@ namespace WpfClient
                 guess.TEAMGUESSED = group;
             else
                 guess.TEAMGUESSED = null;
-
-
             serviceClient.DeleteGuess(guess);
             serviceClient.InsertGuess(guess);
         }

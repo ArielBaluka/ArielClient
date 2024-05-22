@@ -32,7 +32,6 @@ namespace WpfClient
             GuessList guesses = service.GetGuessesByGame(game);
             int total = guesses.Count;
             int drawCount = 0, HomeCount = 0, AwayCount = 0;
-
             foreach (Guess gue in guesses)
             {
                 if (gue.ISDRAW)
@@ -50,9 +49,7 @@ namespace WpfClient
             Teams.Text = game.HOMETEAM.GroupName + " VS " + game.AWAYTEAM.GroupName;
             PointLabel = chartPoint =>
                 string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
-
             DataContext = this;
-
         }
 
         public Func<ChartPoint, string> PointLabel { get; set; }

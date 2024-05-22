@@ -26,7 +26,6 @@ namespace WpfClient
         {
             GameRes = game;
             InitializeComponent();
-
             string HName = game.HOMETEAM.GroupName;
             string AName = game.AWAYTEAM.GroupName;
             int Hscore = game.HOMESCORE;
@@ -35,10 +34,8 @@ namespace WpfClient
             string Apath = "pack://application:,,,/WpfClient;component/pictures/groups/" + (game.AWAYTEAM.ID - 1).ToString() + ".png";
             hgroupPic.Source = new BitmapImage(new Uri(Hpath));
             agroupPic.Source = new BitmapImage(new Uri(Apath));
-
             HomeScoreTXT.Text = Hscore.ToString();
             AwayScoreTXT.Text = Ascore.ToString();
-
             HomeNameTXT.Text = HName;
             AwayNameTXT.Text = AName;
             DateTXT.Text = game.Date.ToShortDateString();

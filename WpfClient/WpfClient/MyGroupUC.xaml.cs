@@ -36,7 +36,6 @@ namespace WpfClient
             string path = "pack://application:,,,/WpfClient;component/pictures/groups/" + (user.FAVORITEGROUP.ID-1).ToString() + ".png";
             NameTxt.Text = GName;
             groupPic.Source = new BitmapImage(new Uri(path));
-
             if(GName == "Arsenal" || GName == "Bournemouth" || GName == "Liverpool" || 
                 GName == "Manchester United" || GName == "Nottingham Forest" || GName == "Sheffield United")
             {
@@ -73,9 +72,7 @@ namespace WpfClient
                     break;
                 default:
                     break;
-
             }
-            ServiceBaseClient service = new ServiceBaseClient();
             NewsServiceClient clientNewsService = new NewsServiceClient();
             dataTxT.Text = clientNewsService.GetGroupData(user.FAVORITEGROUP.GroupName);
         }

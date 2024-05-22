@@ -82,9 +82,6 @@
     <Compile Include="AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AdminUserStatus.xaml.cs">
-      <DependentUpon>AdminUserStatus.xaml</DependentUpon>
-    </Compile>
     <Compile Include="AllGroupsUC.xaml.cs">
       <DependentUpon>AllGroupsUC.xaml</DependentUpon>
     </Compile>
@@ -151,10 +148,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AdminUserStatus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

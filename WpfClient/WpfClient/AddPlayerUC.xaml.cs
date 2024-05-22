@@ -34,7 +34,6 @@ namespace WpfClient
             player = new Player { FirstName = "", LastName = "", IsCaptain = false, Number = 1 };
             this.DataContext = player;
             groups = serviceClient.GetAllGroups();
-
             playerUC = new PlayerUC(player);
             playercard.Children.Add(playerUC);
             addGroups();

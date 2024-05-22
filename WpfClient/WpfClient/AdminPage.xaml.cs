@@ -52,6 +52,9 @@ namespace WpfClient
         {
             closeMenu();
             InsertGuessesUC UCGuess = new InsertGuessesUC();
+            UCGuess.Height = 500;
+            UCGuess.Width = 500;
+
             GridMain.Children.Add(UCGuess);
             GridMain.Visibility = Visibility.Visible;
         }

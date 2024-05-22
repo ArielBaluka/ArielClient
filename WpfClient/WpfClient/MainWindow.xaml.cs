@@ -32,7 +32,6 @@ namespace WpfClient
             this.Close();
             login.ShowDialog();
         }
-
         private void SignUp_Click(object sender, RoutedEventArgs e)
         {
             SignUp signUp = new SignUp();

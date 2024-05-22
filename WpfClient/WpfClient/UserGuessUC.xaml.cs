@@ -30,7 +30,6 @@ namespace WpfClient
             groupPic.Source = new BitmapImage(new Uri(path));
             userTxT.Text += user.UserName;            
             pointsTxT.Text += score.ToString();
-
             if (!isTop || score ==0)
                 SetNonTopBackground();
         }
